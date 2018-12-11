@@ -1,1 +1,8 @@
-# newdeal-cloud-computing
+# Basic & Test
+
+### 01. Lotto 프로그램 만들기
+- 1~45까지의 난수를 발생시켜 6개의 배열에 담기
+- 배열에 담긴 6개의 배열값은 중복값이 나오면 안되게 하라
+- 배열에 있는 6개의 값을 낮은 순으로 정렬
+- 배열에 담긴 6개의 값을 파일로 저장 (Lotto.txt)
+  - 완료후 Collection을 이용하여 같은 Application을 작성
