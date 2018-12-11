@@ -1,4 +1,4 @@
-package basic;
+package basic.lotto;
 
 public class App {
     public static void main(String[] args) {
