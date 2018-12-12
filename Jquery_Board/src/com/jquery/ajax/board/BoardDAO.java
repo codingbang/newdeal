@@ -27,6 +27,11 @@ public class BoardDAO {
 		return boardList;
 	}
 	
+	//단일조회
+	public BoardVO getBoard(int seq){
+      return boardList.get(seq);
+    }
+	
 	//데이터 추가(CREATE)
 	public void addBoard(String board){
 		int size = boardList.size();

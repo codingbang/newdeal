@@ -12,12 +12,14 @@
 	
 	CommentDAO dao = CommentDAO.getInstance();
 	
-	//덧글삭제
 	//dao.addComment(comment);
-    //삭제기능 구현하세요
+  
+	//삭제기능 구현하세요
+	dao.removeComment(seq);
+	List<CommentVO> commentlist = dao.getCommentList(bbsSeq);
 	
-	//JSON 데이터
-	JSONArray jsonarray = null;//JSONArray.fromObject(commentlist);
+	
+	JSONArray jsonarray = JSONArray.fromObject(commentlist);
 %>
 <%=jsonarray %>
 

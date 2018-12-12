@@ -93,16 +93,24 @@
 					      bbsSeq  : "<%= bbsSeq %>" ,
 					      seq : $(this).attr("seq")     //delete * from board where id=?
 					
-			            };
+			  };
 				//$.getJSON().. 사용하여 삭제 처리를 하세요 
 				//$.getJSON('CommentDel.jsp',data)
 				//각자 코드 구현
+				$.getJSON( "CommentDel.jsp", data, function(data) {
+					$('#container').find("table tr").not(":first").remove();
+					$.each(data, function(){
+             $('#container').find("table tr:last").after(
+               "<tr>"
+               + " <td>" + this.seq + "</td>"
+               + " <td>" + this.comment + "</td>"
+               + " <td><button seq='" + this.seq +"'>삭제</button></td>"
+               + "</tr>"
+             );
+          });
+           $('#comment').val();
+		     });
 			});
-			
-			
-			
-			
-			
 		});
 	
 	</script>
