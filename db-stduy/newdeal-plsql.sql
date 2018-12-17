@@ -1,41 +1,41 @@
---PL-SQL
---PL/SQL Àº Oracle's Procedural Language extension to SQL. ÀÇ ¾àÀÚ ÀÔ´Ï´Ù. 
---SQL¹®Àå¿¡¼­ º¯¼öÁ¤ÀÇ, Á¶°ÇÃ³¸®(IF), ¹İº¹Ã³¸®(LOOP, WHILE, FOR)µîÀ» Áö¿øÇÏ¸ç, 
---¿À¶óÅ¬ ÀÚÃ¼¿¡ ³»ÀåµÇ¾î ÀÖ´ÂProcedure LanguageÀÔ´Ï´Ù
---DECLARE¹®À» ÀÌ¿ëÇÏ¿© Á¤ÀÇµÇ¸ç, ¼±¾ğ¹®ÀÇ »ç¿ëÀº ¼±ÅÃ »çÇ×ÀÔ´Ï´Ù. 
---PL/SQL ¹®Àº ºí·Ï ±¸Á¶·Î µÇ¾î ÀÖ°íPL/SQL ÀÚ½ÅÀÌ ÄÄÆÄÀÏ ¿£ÁøÀ» °¡Áö°í ÀÖ½À´Ï´Ù.
+ï»¿--PL-SQL
+--PL/SQL ì€ Oracle's Procedural Language extension to SQL. ì˜ ì•½ì ì…ë‹ˆë‹¤. 
+--SQLë¬¸ì¥ì—ì„œ ë³€ìˆ˜ì •ì˜, ì¡°ê±´ì²˜ë¦¬(IF), ë°˜ë³µì²˜ë¦¬(LOOP, WHILE, FOR)ë“±ì„ ì§€ì›í•˜ë©°, 
+--ì˜¤ë¼í´ ìì²´ì— ë‚´ì¥ë˜ì–´ ìˆëŠ”Procedure Languageì…ë‹ˆë‹¤
+--DECLAREë¬¸ì„ ì´ìš©í•˜ì—¬ ì •ì˜ë˜ë©°, ì„ ì–¸ë¬¸ì˜ ì‚¬ìš©ì€ ì„ íƒ ì‚¬í•­ì…ë‹ˆë‹¤. 
+--PL/SQL ë¬¸ì€ ë¸”ë¡ êµ¬ì¡°ë¡œ ë˜ì–´ ìˆê³ PL/SQL ìì‹ ì´ ì»´íŒŒì¼ ì—”ì§„ì„ ê°€ì§€ê³  ìˆìŠµë‹ˆë‹¤.
 
---Tool > º¸±â > DBMS Ãâ·ÂÃ¢ > + ¹öÆ° Å¬¸¯ > »ç¿ëÀÚ Á¢¼Ó(°³¹ßÀÚ)
---DBMS Ãâ·ÂÃ¢ : ÀÌÅ¬¸³½º console Ã¢
+--Tool > ë³´ê¸° > DBMS ì¶œë ¥ì°½ > + ë²„íŠ¼ í´ë¦­ > ì‚¬ìš©ì ì ‘ì†(ê°œë°œì)
+--DBMS ì¶œë ¥ì°½ : ì´í´ë¦½ìŠ¤ console ì°½
 
---pl-sql (java : System.out.println()) °á°ú È®ÀÎ
---DBMS Ãâ·Â Ã¢¿¡¼­
+--pl-sql (java : System.out.println()) ê²°ê³¼ í™•ì¸
+--DBMS ì¶œë ¥ ì°½ì—ì„œ
 
---1.pl-sql ºí·° ´ÜÀ§ ½ÇÇà
+--1.pl-sql ë¸”ëŸ­ ë‹¨ìœ„ ì‹¤í–‰
 BEGIN
   DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
 END;
 
 --pl-sql
---¼±¾ğºÎ(º¯¼ö) 
---½ÇÇàºÎ(º¯¼ö °ªÀ» ÇÒ´ç , Á¦¾î±¸¹®)
---¿¹¿ÜºÎ(Exception)
+--ì„ ì–¸ë¶€(ë³€ìˆ˜) 
+--ì‹¤í–‰ë¶€(ë³€ìˆ˜ ê°’ì„ í• ë‹¹ , ì œì–´êµ¬ë¬¸)
+--ì˜ˆì™¸ë¶€(Exception)
 
-DECLARE --¼±¾ğ
+DECLARE --ì„ ì–¸
   vno number(4);
   vname varchar2(20);
 BEGIN
-  vno := 100; -- ÇÒ´ç >  String s; s = "È«±æµ¿"
+  vno := 100; -- í• ë‹¹ >  String s; s = "í™ê¸¸ë™"
   vname := 'kglim';
-  DBMS_OUTPUT.PUT_LINE(vno); --È­¸é Ãâ·Â
-  DBMS_OUTPUT.PUT_LINE(vname || 'ÀÔ´Ï´Ù');
+  DBMS_OUTPUT.PUT_LINE(vno); --í™”ë©´ ì¶œë ¥
+  DBMS_OUTPUT.PUT_LINE(vname || 'ì…ë‹ˆë‹¤');
 END;
 
---º¯¼ö ¼±¾ğ ¹æ¹ı (Å¸ÀÔ)
+--ë³€ìˆ˜ ì„ ì–¸ ë°©ë²• (íƒ€ì…)
 --DECLARE
 --v_job varchar2(10);
---v_count number ;= 10; --ÃÊ±â°ª ¼³Á¤
---v_date date := sysdate + 7; --ÃÊ±â°ª ¼³Á¤
+--v_count number ;= 10; --ì´ˆê¸°ê°’ ì„¤ì •
+--v_date date := sysdate + 7; --ì´ˆê¸°ê°’ ì„¤ì •
 --v_valid boolean not null := true
 --------------------------------------------------------------------------------
 DECLARE
@@ -43,14 +43,14 @@ DECLARE
   vname varchar2(20);
 BEGIN
    select empno ,ename
-      into vno , vname --pl-sql »ç¿ëÇÏ´Â ±¸ºĞ (into) . ½ÇÇà°á°ú º¯¼ö¿¡ ´ã±â
+      into vno , vname --pl-sql ì‚¬ìš©í•˜ëŠ” êµ¬ë¶„ (into) . ì‹¤í–‰ê²°ê³¼ ë³€ìˆ˜ì— ë‹´ê¸°
    from emp
-   where empno=&empno; --& ÀÚ¹Ù scanner  ¿ªÈ° (ÀÔ·Â°ª ¹Ş±â)
+   where empno=&empno; --& ìë°” scanner  ì—­í™œ (ì…ë ¥ê°’ ë°›ê¸°)
    
-   DBMS_OUTPUT.PUT_LINE('º¯¼ö°ª : ' || vno || '/' || vname);
+   DBMS_OUTPUT.PUT_LINE('ë³€ìˆ˜ê°’ : ' || vno || '/' || vname);
 END;
  
---½Ç½À Å×ÀÌºí ¸¸µé±â
+--ì‹¤ìŠµ í…Œì´ë¸” ë§Œë“¤ê¸°
 create table pl_test(
 no number , name varchar2(20) , addr varchar2(50));
 
@@ -65,13 +65,13 @@ BEGIN
 END;
 
 select * from pl_test;
---º¯¼ö Á¦¾îÇÏ±â(Å¸ÀÔ)
---1.1 Å¸ÀÔ : v_empno number(10)
---1.2 Å¸ÀÔ : v_empno emp.empno%TYPE  (emp Å×ÀÌºí¿¡ ÀÖ´Â empno ÄÃ·³ÀÇ Å¸ÀÔ »ç¿ë)
---1.3 Å¸ÀÔ : v_row emp%ROWTYPE (v_row º¯¼ö´Â emp Å×ÀÌºí ¸ğµç ÄÃ·³ Å¸ÀÔ Á¤º¸)
+--ë³€ìˆ˜ ì œì–´í•˜ê¸°(íƒ€ì…)
+--1.1 íƒ€ì… : v_empno number(10)
+--1.2 íƒ€ì… : v_empno emp.empno%TYPE  (emp í…Œì´ë¸”ì— ìˆëŠ” empno ì»¬ëŸ¼ì˜ íƒ€ì… ì‚¬ìš©)
+--1.3 íƒ€ì… : v_row emp%ROWTYPE (v_row ë³€ìˆ˜ëŠ” emp í…Œì´ë¸” ëª¨ë“  ì»¬ëŸ¼ íƒ€ì… ì •ë³´)
 
 --QUIZ
---µÎ°³ÀÇ Á¤¼ö¸¦ ÀÔ·Â¹Ş¾Æ¼­ ±× ÇÕÀ» Ãâ·Â
+--ë‘ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ì„œ ê·¸ í•©ì„ ì¶œë ¥
 DECLARE
   v_no1 number := '&no1';
   v_no2 number := '&no2';
@@ -117,14 +117,14 @@ BEGIN
   from dual;
   
   insert into empdml(empno ,ename)
-  values(v_empno,'È«±æµ¿');
+  values(v_empno,'í™ê¸¸ë™');
   commit;
 END;
 
 select * from empdml;
---¿©±â±îÁö º¯¼ö ¼±¾ğ , Å¸ÀÔ , °ª ÇÒ´ç
+--ì—¬ê¸°ê¹Œì§€ ë³€ìˆ˜ ì„ ì–¸ , íƒ€ì… , ê°’ í• ë‹¹
 --------------------------------------------------------------------------------
---pl-sql Á¦¾î¹®
+--pl-sql ì œì–´ë¬¸
 DECLARE
   vempno emp.empno%TYPE;
   vename emp.ename%TYPE;
@@ -135,21 +135,21 @@ BEGIN
     into vempno , vename , vdeptno
   from emp
   where empno=7788;
-  --Á¦¾î¹® if(Á¶°Ç¹®){½ÇÇà¹®}
+  --ì œì–´ë¬¸ if(ì¡°ê±´ë¬¸){ì‹¤í–‰ë¬¸}
   IF(vdeptno = 10) THEN vname := 'ACC'; -- if(vdeptno==10) { vname = "ACC"} else if(){}
     ELSIF(vdeptno=20) THEN vname := 'IT';
     ELSIF(vdeptno=30) THEN vname := 'SALES';
   END IF;
-  DBMS_OUTPUT.PUT_LINE('´ç½ÅÀÇ Á÷Á¾Àº : ' || vname);
+  DBMS_OUTPUT.PUT_LINE('ë‹¹ì‹ ì˜ ì§ì¢…ì€ : ' || vname);
 END;
 
---IF() THEN ½ÇÇà¹®
---ELSIF() THEN ½ÇÇà¹®
---ELSE ½ÇÇà¹®
+--IF() THEN ì‹¤í–‰ë¬¸
+--ELSIF() THEN ì‹¤í–‰ë¬¸
+--ELSE ì‹¤í–‰ë¬¸
 --END IF
---»ç¹øÀÌ 7788¹øÀÎ »ç¿øÀÇ »ç¹ø , ÀÌ¸§ , ±Ş¿©¸¦ º¯¼ö¿¡ ´ã°í
---º¯¼ö¿¡ ´ã±ä ±Ş¿©°¡ 2000 ÀÌ»óÀÌ¸é '´ç½ÅÀÇ ±Ş¿©´Â BIG' Ãâ·ÂÇÏ°í
---±×·¸Áö ¾ÊÀ¸¸é(ELSE) '´ç½ÅÀÇ ±Ş¿©´Â SMALL' ÀÌ¶ó°í Ãâ·ÂÇÏ¼¼¿ä
+--ì‚¬ë²ˆì´ 7788ë²ˆì¸ ì‚¬ì›ì˜ ì‚¬ë²ˆ , ì´ë¦„ , ê¸‰ì—¬ë¥¼ ë³€ìˆ˜ì— ë‹´ê³ 
+--ë³€ìˆ˜ì— ë‹´ê¸´ ê¸‰ì—¬ê°€ 2000 ì´ìƒì´ë©´ 'ë‹¹ì‹ ì˜ ê¸‰ì—¬ëŠ” BIG' ì¶œë ¥í•˜ê³ 
+--ê·¸ë ‡ì§€ ì•Šìœ¼ë©´(ELSE) 'ë‹¹ì‹ ì˜ ê¸‰ì—¬ëŠ” SMALL' ì´ë¼ê³  ì¶œë ¥í•˜ì„¸ìš”
 
 DECLARE
   vempno emp.empno%TYPE;
@@ -160,11 +160,11 @@ BEGIN
     into vempno , vename , vsal
   from emp
   where empno=7788;
-  --Á¦¾î¹® if(Á¶°Ç¹®){½ÇÇà¹®}
+  --ì œì–´ë¬¸ if(ì¡°ê±´ë¬¸){ì‹¤í–‰ë¬¸}
     IF(vsal >  2000) THEN 
-         DBMS_OUTPUT.PUT_LINE('´ç½ÅÀÇ ±Ş¿©´Â BIG ' || vsal);
+         DBMS_OUTPUT.PUT_LINE('ë‹¹ì‹ ì˜ ê¸‰ì—¬ëŠ” BIG ' || vsal);
     ELSE
-         DBMS_OUTPUT.PUT_LINE('´ç½ÅÀÇ ±Ş¿©´Â SMALL ' || vsal);
+         DBMS_OUTPUT.PUT_LINE('ë‹¹ì‹ ì˜ ê¸‰ì—¬ëŠ” SMALL ' || vsal);
     END IF;
  END;
  
@@ -194,15 +194,15 @@ BEGIN
                 WHEN vdeptno=40  THEN 'CC'
                 ELSE 'NOT'
               END;
-    DBMS_OUTPUT.PUT_LINE('´ç½ÅÀÇ ºÎ¼­¸í:' || v_name);            
+    DBMS_OUTPUT.PUT_LINE('ë‹¹ì‹ ì˜ ë¶€ì„œëª…:' || v_name);            
 END;
 --------------------------------------------------------------------------------
---pl-sql (¹İº¹¹®)
+--pl-sql (ë°˜ë³µë¬¸)
 --Basic loop
 /*
 LOOP
-  ¹®ÀÚ;
-  EXIT WHEN (Á¶°Ç½Ä)
+  ë¬¸ì;
+  EXIT WHEN (ì¡°ê±´ì‹)
 END LOOP
 */
 DECLARE
@@ -218,7 +218,7 @@ END;
 /*
 WHILE(n < 6)
 LOOP
-   ½ÇÇà¹®;
+   ì‹¤í–‰ë¬¸;
 END LOOP
 */
 DECLARE
@@ -226,7 +226,7 @@ DECLARE
 BEGIN
   WHILE(num < 6)
   LOOP
-    DBMS_OUTPUT.PUT_LINE('num °ª : ' || num);
+    DBMS_OUTPUT.PUT_LINE('num ê°’ : ' || num);
     num := num +1;
   END LOOP;
 END;
@@ -239,30 +239,30 @@ BEGIN
   END LOOP;
 END;
 
---À§ FOR ¹®À» »ç¿ëÇØ¼­ (1~100±îÁö ÇÕ) ±¸ÇÏ¼¼¿ä
+--ìœ„ FOR ë¬¸ì„ ì‚¬ìš©í•´ì„œ (1~100ê¹Œì§€ í•©) êµ¬í•˜ì„¸ìš”
 DECLARE
 total number :=0;
 BEGIN
   FOR i IN 1..100 LOOP
     total := total + i;
   END LOOP;
-  DBMS_OUTPUT.PUT_LINE('1~100 ÃÑÇÕ : ' || total);
+  DBMS_OUTPUT.PUT_LINE('1~100 ì´í•© : ' || total);
 END;
 
---11g ÀÌÀü (continue (x))
---11g (continue Ãß°¡)
+--11g ì´ì „ (continue (x))
+--11g (continue ì¶”ê°€)
 DECLARE
   total number := 0;
 BEGIN
   FOR i IN 1..100 LOOP
-    DBMS_OUTPUT.PUT_LINE('º¯¼ö : ' || i);
+    DBMS_OUTPUT.PUT_LINE('ë³€ìˆ˜ : ' || i);
     CONTINUE WHEN i > 5; --skip
     total := total + i; -- 1 , 2 , 3 , 4, 5
   END LOOP;
-    DBMS_OUTPUT.PUT_LINE('ÇÕ°è : ' || total);
+    DBMS_OUTPUT.PUT_LINE('í•©ê³„ : ' || total);
 END;
 --------------------------------------------------------------------------------
---È°¿ë
+--í™œìš©
 DECLARE
   v_empno emp.empno%TYPE;
   v_name  emp.ename%TYPE := UPPER('&name');
@@ -284,83 +284,83 @@ BEGIN
   set sal = v_sal
   where empno=v_empno;
   
-  DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || '°³ÀÇ ÇàÀÌ °»½Å µÇ¾ú½À´Ï´Ù');
+  DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || 'ê°œì˜ í–‰ì´ ê°±ì‹  ë˜ì—ˆìŠµë‹ˆë‹¤');
   
-  --¿¹¿ÜÃ³¸®
+  --ì˜ˆì™¸ì²˜ë¦¬
   EXCEPTION
     WHEN NO_DATA_FOUND THEN
-       DBMS_OUTPUT.PUT_LINE(v_name || '´Â ÀÚ·á°¡ ¾ø½À´Ï´Ù');
+       DBMS_OUTPUT.PUT_LINE(v_name || 'ëŠ” ìë£Œê°€ ì—†ìŠµë‹ˆë‹¤');
     WHEN TOO_MANY_ROWS THEN
-       DBMS_OUTPUT.PUT_LINE(v_name || '´Â µ¿¸í ÀÌÀÎÀÔ´Ï´Ù');
+       DBMS_OUTPUT.PUT_LINE(v_name || 'ëŠ” ë™ëª… ì´ì¸ì…ë‹ˆë‹¤');
     WHEN OTHERS THEN
-       DBMS_OUTPUT.PUT_LINE('±âÅ¸ ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù');
+       DBMS_OUTPUT.PUT_LINE('ê¸°íƒ€ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤');
 END;
 
 select * from emp;
 rollback;
 /*
-ÁúÀÇ´Â ÇÏ³ªÀÇ Çà¸¸ RETURN ÇØ¾ß ÇÕ´Ï´Ù. PL/SQL ºí·Ï ³»ÀÇ SELECT ¹®ÀåÀº ´ÙÀ½ ±ÔÄ¢À»
-Àû¿ëÇÏ´Â Embedded SQL ÀÇ ANSI ¹üÁÖ¿¡ ¼ÓÇÕ´Ï´Ù. ÁúÀÇÀÇ °á°ú´Â ÇÏ³ªÀÇ Çà¸¸À» RETURN ÇØ
-¾ß  ÇÏ°í  ÇÏ³ªÀÇ  Çà  ÀÌ»ó  ¶Ç´Â  ÇàÀÌ  ¾ø´Â  °ÍÀº  ¿¡·¯¸¦  »ı¼ºÇÕ´Ï´Ù.  PL/SQL Àº
-NO_DATA_FOUND ¿Í TOO_MANY_ROWS ¸¦ ¿¹¿Ü·Î ºí·ÏÀÇ ¿¹¿Ü ¼½¼Ç¿¡¼­ ÃßÀûÇÒ ¼ö ÀÖ´Â Ç¥ÁØ ¿¹
-¿Ü¸¦ Á¶¼ºÇÏ¿© Ã³¸® ÇÕ´Ï´Ù.
+ì§ˆì˜ëŠ” í•˜ë‚˜ì˜ í–‰ë§Œ RETURN í•´ì•¼ í•©ë‹ˆë‹¤. PL/SQL ë¸”ë¡ ë‚´ì˜ SELECT ë¬¸ì¥ì€ ë‹¤ìŒ ê·œì¹™ì„
+ì ìš©í•˜ëŠ” Embedded SQL ì˜ ANSI ë²”ì£¼ì— ì†í•©ë‹ˆë‹¤. ì§ˆì˜ì˜ ê²°ê³¼ëŠ” í•˜ë‚˜ì˜ í–‰ë§Œì„ RETURN í•´
+ì•¼  í•˜ê³   í•˜ë‚˜ì˜  í–‰  ì´ìƒ  ë˜ëŠ”  í–‰ì´  ì—†ëŠ”  ê²ƒì€  ì—ëŸ¬ë¥¼  ìƒì„±í•©ë‹ˆë‹¤.  PL/SQL ì€
+NO_DATA_FOUND ì™€ TOO_MANY_ROWS ë¥¼ ì˜ˆì™¸ë¡œ ë¸”ë¡ì˜ ì˜ˆì™¸ ì„¹ì…˜ì—ì„œ ì¶”ì í•  ìˆ˜ ìˆëŠ” í‘œì¤€ ì˜ˆ
+ì™¸ë¥¼ ì¡°ì„±í•˜ì—¬ ì²˜ë¦¬ í•©ë‹ˆë‹¤.
 */
 select * from emp where ename='SMITH';
 rollback;
 
--- pl-sql ±âº» ±¸¹®  END
+-- pl-sql ê¸°ë³¸ êµ¬ë¬¸  END
 --------------------------------------------------------------------------------
--- cursor , procedure , function , Trigger °í±ŞÀÚ¿ø 
+-- cursor , procedure , function , Trigger ê³ ê¸‰ìì› 
 
---[ Ä¿¼­ ]
---Áö±İ±îÁö ÁıÇÕ ´ÜÀ§ÀÇ µ¥ÀÌÅÍ Ã³¸® (ÀüÃ¼ row¸¦ ´ë»óÀ¸·Î)
+--[ ì»¤ì„œ ]
+--ì§€ê¸ˆê¹Œì§€ ì§‘í•© ë‹¨ìœ„ì˜ ë°ì´í„° ì²˜ë¦¬ (ì „ì²´ rowë¥¼ ëŒ€ìƒìœ¼ë¡œ)
 
 --[CURSOR]
---1.  [Çà´ÜÀ§]·Î µ¥ÀÌÅÍ¸¦ Ã³¸®ÇÏ´Â ¹æ¹ıÀ» Á¦°ø
---2.  ¿©·¯°ÇÀÇ µ¥ÀÌÅÍ¸¦ Ã³¸®ÇÏ´Â Ã³¸®ÇÏ´Â ¹æ¹ıÀ» Á¦°ø (ÇÑ °ÇÀÌ»óÀÇ  row°¡Áö°í ³î±â)
+--1.  [í–‰ë‹¨ìœ„]ë¡œ ë°ì´í„°ë¥¼ ì²˜ë¦¬í•˜ëŠ” ë°©ë²•ì„ ì œê³µ
+--2.  ì—¬ëŸ¬ê±´ì˜ ë°ì´í„°ë¥¼ ì²˜ë¦¬í•˜ëŠ” ì²˜ë¦¬í•˜ëŠ” ë°©ë²•ì„ ì œê³µ (í•œ ê±´ì´ìƒì˜  rowê°€ì§€ê³  ë†€ê¸°)
  
---»ç¿ø±Ş¿©Å×ÀÌºí(°Ç¼³È¸»ç)
---Á¤±ÔÁ÷ , ÀÏ¿ëÀÏ ,½Ã°£Á÷ 
+--ì‚¬ì›ê¸‰ì—¬í…Œì´ë¸”(ê±´ì„¤íšŒì‚¬)
+--ì •ê·œì§ , ì¼ìš©ì¼ ,ì‹œê°„ì§ 
 
---»ç¹ø , ÀÌ¸§ , Á÷Á¾¸í ,   ¿ù±Ş , ½Ã°£ , ½Ã°£±Ş , ½Ä´ë
--- 10   È«±æµ¿  Á¤±ÔÁ÷   120    null   null     null
--- 11   ±èÀ¯½Å  ½Ã°£Á÷   null   10      100     null
--- 12   ÀÌ¼ø½Å  ÀÏ¿ëÀÏ   null   null    120     10
+--ì‚¬ë²ˆ , ì´ë¦„ , ì§ì¢…ëª… ,   ì›”ê¸‰ , ì‹œê°„ , ì‹œê°„ê¸‰ , ì‹ëŒ€
+-- 10   í™ê¸¸ë™  ì •ê·œì§   120    null   null     null
+-- 11   ê¹€ìœ ì‹   ì‹œê°„ì§   null   10      100     null
+-- 12   ì´ìˆœì‹   ì¼ìš©ì¼   null   null    120     10
 
---Á¤±ÔÁ÷
---¿ù±Ş
+--ì •ê·œì§
+--ì›”ê¸‰
 --
---ÀÏ¿ëÁ÷
---½Ã°£ , ½Ã°£±Ş
+--ì¼ìš©ì§
+--ì‹œê°„ , ì‹œê°„ê¸‰
 --
---½Ã°£Á÷
---½Ã°£±Ş , ½Ä´ë
+--ì‹œê°„ì§
+--ì‹œê°„ê¸‰ , ì‹ëŒ€
 
 
---ÇÑ Çà½Ä¾¿ Á¢±ÙÇØ¼­ Á÷Á¾À» ±âÁØÀ¸·Î °è»ê¹æ¹ı
+--í•œ í–‰ì‹ì”© ì ‘ê·¼í•´ì„œ ì§ì¢…ì„ ê¸°ì¤€ìœ¼ë¡œ ê³„ì‚°ë°©ë²•
 
---if Á¤±ÔÁ÷  > ¿ù±Ş (ÃÑ±Ş¿©)
---elsif ½Ã°£Á÷ > ½Ã°£ * ½Ã°£±Ş (ÃÑ±Ş¿©)
---elsif ÀÏ¿ëÁ÷ > ½Ã°£±Ş + ½Ä´ë (ÃÑ±Ş¿©)
+--if ì •ê·œì§  > ì›”ê¸‰ (ì´ê¸‰ì—¬)
+--elsif ì‹œê°„ì§ > ì‹œê°„ * ì‹œê°„ê¸‰ (ì´ê¸‰ì—¬)
+--elsif ì¼ìš©ì§ > ì‹œê°„ê¸‰ + ì‹ëŒ€ (ì´ê¸‰ì—¬)
  
  
  
---SQL CURSOR ÀÇ ¼Ó¼ºÀ» »ç¿ëÇÏ¿© SQL ¹®ÀåÀÇ °á°ú¸¦ Å×½ºÆ®ÇÒ ¼ö ÀÖ´Ù.
---[Á¾ ·ù ¼³ ¸í]
-  --SQL%ROWCOUNT °¡Àå ÃÖ±ÙÀÇ SQL ¹®Àå¿¡ ÀÇÇØ ¿µÇâÀ» ¹ŞÀº ÇàÀÇ ¼ö
-  --SQL%FOUND °¡Àå ÃÖ±ÙÀÇ SQL ¹®ÀåÀÌ ÇÏ³ª ¶Ç´Â ±× ÀÌ»óÀÇ Çà¿¡ ¿µÇâÀ» ¹ÌÄ£´Ù¸é TRUE ·Î Æò°¡ÇÑ´Ù.
-  --SQL%NOTFOUND °¡Àå ÃÖ±ÙÀÇ SQL ¹®ÀåÀÌ ¾î¶² Çà¿¡µµ ¿µÇâÀ» ¹ÌÄ¡Áö ¾Ê¾Ò´Ù¸é TRUE ·Î  Æò°¡ÇÑ´Ù.
-  --SQL%ISOPEN PL/SQL ÀÌ ½ÇÇàµÈ ÈÄ¿¡ Áï½Ã ¾Ï½ÃÀû Ä¿¼­¸¦ ´İ±â ¶§¹®¿¡ Ç×»ó FALSE ·Î Æò°¡µÈ´Ù.
+--SQL CURSOR ì˜ ì†ì„±ì„ ì‚¬ìš©í•˜ì—¬ SQL ë¬¸ì¥ì˜ ê²°ê³¼ë¥¼ í…ŒìŠ¤íŠ¸í•  ìˆ˜ ìˆë‹¤.
+--[ì¢… ë¥˜ ì„¤ ëª…]
+  --SQL%ROWCOUNT ê°€ì¥ ìµœê·¼ì˜ SQL ë¬¸ì¥ì— ì˜í•´ ì˜í–¥ì„ ë°›ì€ í–‰ì˜ ìˆ˜
+  --SQL%FOUND ê°€ì¥ ìµœê·¼ì˜ SQL ë¬¸ì¥ì´ í•˜ë‚˜ ë˜ëŠ” ê·¸ ì´ìƒì˜ í–‰ì— ì˜í–¥ì„ ë¯¸ì¹œë‹¤ë©´ TRUE ë¡œ í‰ê°€í•œë‹¤.
+  --SQL%NOTFOUND ê°€ì¥ ìµœê·¼ì˜ SQL ë¬¸ì¥ì´ ì–´ë–¤ í–‰ì—ë„ ì˜í–¥ì„ ë¯¸ì¹˜ì§€ ì•Šì•˜ë‹¤ë©´ TRUE ë¡œ  í‰ê°€í•œë‹¤.
+  --SQL%ISOPEN PL/SQL ì´ ì‹¤í–‰ëœ í›„ì— ì¦‰ì‹œ ì•”ì‹œì  ì»¤ì„œë¥¼ ë‹«ê¸° ë•Œë¬¸ì— í•­ìƒ FALSE ë¡œ í‰ê°€ëœë‹¤.
   
 /*
    DECLARE
-          CURSOR Ä¿¼­ÀÌ¸§ IS ¹®ÀÚ(Ä¿¼­°¡ ½ÇÇàÇÒ Äõ¸®)
+          CURSOR ì»¤ì„œì´ë¦„ IS ë¬¸ì(ì»¤ì„œê°€ ì‹¤í–‰í•  ì¿¼ë¦¬)
    BEGIN
-         OPEN Ä¿¼­ÀÌ¸§ (Ä¿¼­°¡ °¡Áö°í ÀÖ´Â Äõ¸®¸¦ ½ÇÇà)
+         OPEN ì»¤ì„œì´ë¦„ (ì»¤ì„œê°€ ê°€ì§€ê³  ìˆëŠ” ì¿¼ë¦¬ë¥¼ ì‹¤í–‰)
              
-         FETCH Ä¿¼­ÀÌ¸§ INTO º¯¼ö¸íµé...
-          --Ä¿¼­·Î ºÎÅÍ µ¥ÀÌÅÍ¸¦ ÀĞ¾î¼­ ¿øÇÏ´Â º¯¼ö¿¡ ÀúÀå
-         CLOSE Ä¿¼­ÀÌ¸§ (Ä¿¼­´İ±â) 
+         FETCH ì»¤ì„œì´ë¦„ INTO ë³€ìˆ˜ëª…ë“¤...
+          --ì»¤ì„œë¡œ ë¶€í„° ë°ì´í„°ë¥¼ ì½ì–´ì„œ ì›í•˜ëŠ” ë³€ìˆ˜ì— ì €ì¥
+         CLOSE ì»¤ì„œì´ë¦„ (ì»¤ì„œë‹«ê¸°) 
    END
 
 
@@ -371,7 +371,7 @@ DECLARE
   vsal   emp.sal%TYPE;
   CURSOR c1  IS select empno,ename,sal from emp where deptno=30;
 BEGIN
-    OPEN c1; --Ä¿¼­°¡ °¡Áö°í ÀÖ´Â ¹®Àå ½ÇÇà
+    OPEN c1; --ì»¤ì„œê°€ ê°€ì§€ê³  ìˆëŠ” ë¬¸ì¥ ì‹¤í–‰
     LOOP
       --Memory
       /*
@@ -383,19 +383,19 @@ BEGIN
         7900 JAMES 950
       */
       FETCH c1 INTO vempno , vename, vsal;
-      EXIT WHEN c1%NOTFOUND; --´õÀÌ»ó row °¡ ¾øÀ¸¸é Å»Ãâ
+      EXIT WHEN c1%NOTFOUND; --ë”ì´ìƒ row ê°€ ì—†ìœ¼ë©´ íƒˆì¶œ
         DBMS_OUTPUT.PUT_LINE(vempno || '-' || vename || '-'|| vsal);
     END LOOP;
     CLOSE c1;
 END;
 -------------------------------------------------------
---À§ Ç¥ÇöÀ» Á» ´õ °£´ÜÇÏ°Ô
+--ìœ„ í‘œí˜„ì„ ì¢€ ë” ê°„ë‹¨í•˜ê²Œ
 --java (for(emp e : emplist){}
 DECLARE
   CURSOR emp_curr IS  select empno ,ename from emp;
 BEGIN
    
-    FOR emp_record IN emp_curr  --row ´ÜÀ§·Î emp_recordº¯¼ö ÇÒ´ç
+    FOR emp_record IN emp_curr  --row ë‹¨ìœ„ë¡œ emp_recordë³€ìˆ˜ í• ë‹¹
     LOOP
       EXIT WHEN  emp_curr%NOTFOUND;
       DBMS_OUTPUT.PUT_LINE(emp_record.empno || '-' || emp_record.ename);
@@ -406,10 +406,10 @@ END;
 
 --------------------------------------------------------------------------------
 DECLARE
-  vemp emp%ROWTYPE; --Type Á¤ÀÇ
+  vemp emp%ROWTYPE; --Type ì •ì˜
   CURSOR emp_curr IS  select empno ,ename from emp;
 BEGIN
-  FOR vemp IN emp_curr  --row ´ÜÀ§·Î emp_recordº¯¼ö ÇÒ´ç
+  FOR vemp IN emp_curr  --row ë‹¨ìœ„ë¡œ emp_recordë³€ìˆ˜ í• ë‹¹
     LOOP
       EXIT WHEN  emp_curr%NOTFOUND;
       DBMS_OUTPUT.PUT_LINE(vemp.empno || '-' || vemp.ename);
@@ -424,7 +424,7 @@ DECLARE
      WHERE deptno = 20 AND job = 'CLERK'
      ORDER BY empno;
 BEGIN
-  DBMS_OUTPUT.PUT_LINE('»ç¹ø ÀÌ ¸§ ±Ş ¿©');
+  DBMS_OUTPUT.PUT_LINE('ì‚¬ë²ˆ ì´ ë¦„ ê¸‰ ì—¬');
   DBMS_OUTPUT.PUT_LINE('---- ---------- ----------------');
   FOR emp_record IN emp_cursor 
   LOOP
@@ -433,7 +433,7 @@ BEGIN
                            LPAD(TO_CHAR(emp_record.sal,'$99,999,990.00'),16));
   END LOOP;
       DBMS_OUTPUT.PUT_LINE('----------------------------------');
-      DBMS_OUTPUT.PUT_LINE(RPAD(TO_CHAR(20),2) || '¹ø ºÎ¼­ÀÇ ÇÕ ' ||
+      DBMS_OUTPUT.PUT_LINE(RPAD(TO_CHAR(20),2) || 'ë²ˆ ë¶€ì„œì˜ í•© ' ||
       LPAD(TO_CHAR(v_sal_total,'$99,999,990.00'),16));
 END;
 
@@ -449,11 +449,11 @@ add totalsum number;
 
 desc cursor_table;
 
---¹®Á¦
---emp Å×ÀÌºí¿¡¼­  »ç¿øµéÀÇ  »ç¹ø , ÀÌ¸§ , ±Ş¿©¸¦ °¡Áö°í
---¿Í¼­ cursor_table insert ¸¦ ÇÏ´Âµ¥ totalsum Àº ±Ş¿© + comm ÅëÇØ¼­
---ºÎ¼­¹øÈ£°¡ 10ÀÎ »ç¿øÀº totalsum¿¡ ±Ş¿© Á¤º¸¸¸ ³ÖÀ¸¼¼¿ä
---µ¥ÀÌÅÍ Ã³¸®
+--ë¬¸ì œ
+--emp í…Œì´ë¸”ì—ì„œ  ì‚¬ì›ë“¤ì˜  ì‚¬ë²ˆ , ì´ë¦„ , ê¸‰ì—¬ë¥¼ ê°€ì§€ê³ 
+--ì™€ì„œ cursor_table insert ë¥¼ í•˜ëŠ”ë° totalsum ì€ ê¸‰ì—¬ + comm í†µí•´ì„œ
+--ë¶€ì„œë²ˆí˜¸ê°€ 10ì¸ ì‚¬ì›ì€ totalsumì— ê¸‰ì—¬ ì •ë³´ë§Œ ë„£ìœ¼ì„¸ìš”
+--ë°ì´í„° ì²˜ë¦¬
 --
 insert into CURSOR_TABLE(empno,ename,sal,totalsum)
   select empno , ename , sal , sal+nvl(comm,0)
@@ -466,7 +466,7 @@ DECLARE
   result number := 0;
   CURSOR emp_curr IS select empno, ename, sal,deptno,comm from emp;
   BEGIN
-    FOR vemp IN emp_curr   --row ´ÜÀ§·Î emp_record º¯¼ö¿¡ ÇÒ´ç
+    FOR vemp IN emp_curr   --row ë‹¨ìœ„ë¡œ emp_record ë³€ìˆ˜ì— í• ë‹¹
     LOOP
         EXIT WHEN emp_curr%NOTFOUND;
         IF(vemp.deptno = 20) THEN 
@@ -497,7 +497,7 @@ select * from cursor_table order by deptno;
 
 
 
---PL-SQL Æ®·£Àè¼Ç ¹× ¿¹¿Ü Ã³¸®ÇÏ±â
+--PL-SQL íŠ¸ëœì­ì…˜ ë° ì˜ˆì™¸ ì²˜ë¦¬í•˜ê¸°
  DECLARE
     v_ename emp.ename%TYPE := '&p_ename';
     v_err_code NUMBER;
@@ -505,31 +505,31 @@ select * from cursor_table order by deptno;
     BEGIN
           DELETE emp WHERE ename = v_ename;
           IF SQL%NOTFOUND THEN
-              RAISE_APPLICATION_ERROR(-20001,'my no data found'); --»ç¿ëÀÚ°¡ ¿¹¿Ü ¸¸µé±â
+              RAISE_APPLICATION_ERROR(-20001,'my no data found'); --ì‚¬ìš©ìê°€ ì˜ˆì™¸ ë§Œë“¤ê¸°
           END IF;
        EXCEPTION 
         WHEN OTHERS THEN
             ROLLBACK;
               v_err_code := SQLCODE;
               v_err_msg := SQLERRM;
-              DBMS_OUTPUT.PUT_LINE('¿¡·¯ ¹øÈ£ : ' || TO_CHAR(v_err_code));
-              DBMS_OUTPUT.PUT_LINE('¿¡·¯ ³»¿ë : ' || v_err_msg);
+              DBMS_OUTPUT.PUT_LINE('ì—ëŸ¬ ë²ˆí˜¸ : ' || TO_CHAR(v_err_code));
+              DBMS_OUTPUT.PUT_LINE('ì—ëŸ¬ ë‚´ìš© : ' || v_err_msg);
       END;
         
 select * from emp where ename ='KING';
 
 delete from emp where ename='aaa';
 --------------------------------------------------------------------------------
---Áö±İ±îÁö ¸¸µé¾ú´Â ÀÛ¾÷ÀÌ ¿µ¼ÓÀûÀ¸·Î ÀúÀå µÇÁö ¾Ê¾Ò´Ù
+--ì§€ê¸ˆê¹Œì§€ ë§Œë“¤ì—ˆëŠ” ì‘ì—…ì´ ì˜ì†ì ìœ¼ë¡œ ì €ì¥ ë˜ì§€ ì•Šì•˜ë‹¤
 --crerate table , create view 
---³»°¡ À§¿¡¼­ ¸¸µç Ä¿¼­¸¦ ¿µ¼ÓÀûÀ¸·Î ÀúÀå (°´Ã¼)
---°´Ã¼ ÇüÅÂ·Î ÀúÀå ÇØ³õÀ¸¸é ±× ´ÙÀ½¹ø¿¡ ÄÚµùÇÏÁö ¾Ê°í ºÒ·¯ »ç¿ë
+--ë‚´ê°€ ìœ„ì—ì„œ ë§Œë“  ì»¤ì„œë¥¼ ì˜ì†ì ìœ¼ë¡œ ì €ì¥ (ê°ì²´)
+--ê°ì²´ í˜•íƒœë¡œ ì €ì¥ í•´ë†“ìœ¼ë©´ ê·¸ ë‹¤ìŒë²ˆì— ì½”ë”©í•˜ì§€ ì•Šê³  ë¶ˆëŸ¬ ì‚¬ìš©
 
 --Oracle : subprogram(procedure)
 --Ms-sql : procedure
 
---ÀÚÁÖ »ç¿ëµÇ´Â Äõ¸®¸¦ ¸ğµâÈ­ ½ÃÄÑ¼­ °´Ã¼·Î ÀúÀåÇÏ°í
---ÇÊ¿äÇÑ ½ÃÁ¡¿¡ ºÒ·¯(È£Ãâ) ÇØ¼­ »ç¿ëÇÏ°Ú´Ù
+--ìì£¼ ì‚¬ìš©ë˜ëŠ” ì¿¼ë¦¬ë¥¼ ëª¨ë“ˆí™” ì‹œì¼œì„œ ê°ì²´ë¡œ ì €ì¥í•˜ê³ 
+--í•„ìš”í•œ ì‹œì ì— ë¶ˆëŸ¬(í˜¸ì¶œ) í•´ì„œ ì‚¬ìš©í•˜ê² ë‹¤
 
 create or replace procedure usp_emplist
 is
@@ -539,22 +539,22 @@ is
     where deptno=30;
   END;
 
---½ÇÇà¹æ¹ı
+--ì‹¤í–‰ë°©ë²•
 execute usp_emplist;
 select * from emp where deptno=30;
 rollback;
 
---procedure  ÀåÁ¡
---±âÁ¸ : APP(emp.java > select .... ±¸¹®)    ->³×Æ®¿öÅ© > DB¿¬°á > selet... > DB¿¡
---Áö±İ : APP(emp.java > usp_emplist ±¸¹®)    ->³×Æ®¿öÅ© > DB¿¬°á > usp_emplist > DB¿¡
+--procedure  ì¥ì 
+--ê¸°ì¡´ : APP(emp.java > select .... êµ¬ë¬¸)    ->ë„¤íŠ¸ì›Œí¬ > DBì—°ê²° > selet... > DBì—
+--ì§€ê¸ˆ : APP(emp.java > usp_emplist êµ¬ë¬¸)    ->ë„¤íŠ¸ì›Œí¬ > DBì—°ê²° > usp_emplist > DBì—
 
---1.ÀåÁ¡ : ³×Æ®¿öÅ© Æ®·¡ÇÈ °¨¼Ò(½Ã°£ ´ÜÃà)
---2.ÀåÁ¡ : º¸¾È (³×Æ®¿öÅ© »ó¿¡¼­ ...º¸¾È ¿ä¼Ò)ÇØ°á
+--1.ì¥ì  : ë„¤íŠ¸ì›Œí¬ íŠ¸ë˜í”½ ê°ì†Œ(ì‹œê°„ ë‹¨ì¶•)
+--2.ì¥ì  : ë³´ì•ˆ (ë„¤íŠ¸ì›Œí¬ ìƒì—ì„œ ...ë³´ì•ˆ ìš”ì†Œ)í•´ê²°
 
 
 --procedure 
---parameter  »ç¿ë°¡´É
---Á¾·ù : INPUT  , OUTPUT
+--parameter  ì‚¬ìš©ê°€ëŠ¥
+--ì¢…ë¥˜ : INPUT  , OUTPUT
 create or replace procedure usp_update_emp
 (vempno emp.empno%TYPE)
 is
@@ -563,7 +563,7 @@ is
     set sal = 0
     where empno = vempno;
   END;
---½ÇÇà¹æ¹ı
+--ì‹¤í–‰ë°©ë²•
 exec usp_update_emp(7788);
 
 select * from emp where empno = 7788;
@@ -575,7 +575,7 @@ rollback;
 create or replace procedure usp_getemplist
 (vempno emp.empno%TYPE)
 is
-  --³»ºÎ¿¡¼­ »ç¿ëÇÏ´Â º¯¼ö
+  --ë‚´ë¶€ì—ì„œ ì‚¬ìš©í•˜ëŠ” ë³€ìˆ˜
   vname emp.ename%TYPE;
   vsal  emp.sal%TYPE;
   BEGIN
@@ -584,8 +584,8 @@ is
       from emp
       where empno=vempno;
       
-      DBMS_OUTPUT.put_line('ÀÌ¸§Àº : ' || vname);
-      DBMS_OUTPUT.put_line('±Ş¿©´Â : ' || vsal);
+      DBMS_OUTPUT.put_line('ì´ë¦„ì€ : ' || vname);
+      DBMS_OUTPUT.put_line('ê¸‰ì—¬ëŠ” : ' || vsal);
   END;
 
 exec usp_getemplist(7902);
@@ -593,9 +593,9 @@ exec usp_getemplist(7902);
 
 --int age = call(100); 
 --------------------------------------------------------------------------------
--- procedure  ´Â parameter  Á¾·ù 2°¡Áö
---1. input paramter : »ç¿ë½Ã ¹İµå½Ã  ÀÔ·Â          (IN : »ı·«ÇÏ´Â default)
---2. output parmater : »ç¿ë½Ã ÀÔ·Â°ªÀ» ¹ŞÁö ¾Ê¾Æ¿ä (OUT)
+-- procedure  ëŠ” parameter  ì¢…ë¥˜ 2ê°€ì§€
+--1. input paramter : ì‚¬ìš©ì‹œ ë°˜ë“œì‹œ  ì…ë ¥          (IN : ìƒëµí•˜ëŠ” default)
+--2. output parmater : ì‚¬ìš©ì‹œ ì…ë ¥ê°’ì„ ë°›ì§€ ì•Šì•„ìš” (OUT)
 create or replace procedure app_get_emplist
 (
   vempno IN emp.empno%TYPE,
@@ -610,20 +610,20 @@ is
     where empno=vempno;
   END;
 
---¿À¶óÅ¬ ½ÇÇà Å×½ºÆ®
+--ì˜¤ë¼í´ ì‹¤í–‰ í…ŒìŠ¤íŠ¸
 DECLARE
   out_ename emp.ename%TYPE;
   out_sal   emp.sal%TYPE;
 BEGIN
    app_get_emplist(7902,out_ename,out_sal);
-   DBMS_OUTPUT.put_line('Ãâ·Â°ª : ' || out_ename || '-' || out_sal);
+   DBMS_OUTPUT.put_line('ì¶œë ¥ê°’ : ' || out_ename || '-' || out_sal);
 END;
----------------------±âº» procedure END-----------------------------------------
---[»ç¿ëÀÚ Á¤ÀÇ ÇÔ¼ö]
---to_char() , sum() ¿À¶óÅ¬¿¡¼­ Á¦°ø
---»ç¿ëÀÚ°¡ Á÷Á¢ ÇÊ¿äÇÑ ÇÔ¼ö¸¦ ¸¸µé¾î »ç¿ë°¡´É
---»ç¿ë¹æ¹ıÀº ´Ù¸¥ ÇÔ¼ö»ç¿ë¹ı°ú µ¿ÀÏ
---»ç¿ëÀÚ Á¤ÀÇ ÇÔ¼ö paramter  Á¤ÀÇ , return °ª
+---------------------ê¸°ë³¸ procedure END-----------------------------------------
+--[ì‚¬ìš©ì ì •ì˜ í•¨ìˆ˜]
+--to_char() , sum() ì˜¤ë¼í´ì—ì„œ ì œê³µ
+--ì‚¬ìš©ìê°€ ì§ì ‘ í•„ìš”í•œ í•¨ìˆ˜ë¥¼ ë§Œë“¤ì–´ ì‚¬ìš©ê°€ëŠ¥
+--ì‚¬ìš©ë°©ë²•ì€ ë‹¤ë¥¸ í•¨ìˆ˜ì‚¬ìš©ë²•ê³¼ ë™ì¼
+--ì‚¬ìš©ì ì •ì˜ í•¨ìˆ˜ paramter  ì •ì˜ , return ê°’
 create or replace function f_max_sal
 (s_deptno emp.deptno%TYPE)
 return number   -- public int f_max_sal(int deptno) { int max_sal = 0;  return 10}
@@ -644,11 +644,11 @@ select max(sal) , f_max_sal(30) from emp;
 --
 create or replace function f_callname
 (vempno emp.empno%TYPE)
-return varchar2 -- public String f_callname() { return "È«±æµ¿"}
+return varchar2 -- public String f_callname() { return "í™ê¸¸ë™"}
 is
   v_name emp.ename%TYPE;
 BEGIN
-    select ename || '´Ô'
+    select ename || 'ë‹˜'
       into v_name
     from emp
     where empno=vempno;
@@ -667,8 +667,8 @@ select empno, ename , f_callname(empno) , sal
 from emp
 where empno=7788;
 
---ÇÔ¼ö 
---parmater  »ç¹øÀ» ÀÔ·Â¹Ş¾Æ¼­ »ç¹ø¿¡ ÇØ´çµÇ´Â ºÎ¼­ÀÌ¸§À» ¸®ÅÏÇÏ´Â ÇÔ¼ö
+--í•¨ìˆ˜ 
+--parmater  ì‚¬ë²ˆì„ ì…ë ¥ë°›ì•„ì„œ ì‚¬ë²ˆì— í•´ë‹¹ë˜ëŠ” ë¶€ì„œì´ë¦„ì„ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
 create or replace function f_get_dname
 (vempno emp.empno%TYPE)
 return varchar2
@@ -687,38 +687,38 @@ from emp
 where empno=7902;
 --------------------------function END------------------------------------------
 
---[Æ®¸®°Å : Trigger]
---Æ®¸®°Å(trigger)ÀÇ »çÀüÀûÀÎ ÀÇ¹Ì´Â ¹æ¾Æ¼è³ª (¹æ¾Æ¼è¸¦) ½î´Ù, ¹ß»çÇÏ´Ù,
---(»ç°ÇÀ») À¯¹ß½ÃÅ°´Ù¶ó´Â ÀÇ¹Ì°¡ ÀÖ´Ù.
+--[íŠ¸ë¦¬ê±° : Trigger]
+--íŠ¸ë¦¬ê±°(trigger)ì˜ ì‚¬ì „ì ì¸ ì˜ë¯¸ëŠ” ë°©ì•„ì‡ ë‚˜ (ë°©ì•„ì‡ ë¥¼) ì˜ë‹¤, ë°œì‚¬í•˜ë‹¤,
+--(ì‚¬ê±´ì„) ìœ ë°œì‹œí‚¤ë‹¤ë¼ëŠ” ì˜ë¯¸ê°€ ìˆë‹¤.
  
---[ÀÔ°í]    [Àç°í]     [Ãâ°í]
+--[ì…ê³ ]    [ì¬ê³ ]     [ì¶œê³ ]
  
 --insert
---insert into Àç°í
---select * from ÀÔ°í
+--insert into ì¬ê³ 
+--select * from ì…ê³ 
 
  
  
---ÀÔ°í INSERT (³»ºÎÀûÀ¸·Î [Æ®·£Àè¼Ç]ÀÌ µ¿ÀÛ)
---Àç°í INSERT
---À§ÇèºÎ´ã : lock
+--ì…ê³  INSERT (ë‚´ë¶€ì ìœ¼ë¡œ [íŠ¸ëœì­ì…˜]ì´ ë™ì‘)
+--ì¬ê³  INSERT
+--ìœ„í—˜ë¶€ë‹´ : lock
  
  
---PL/SQL¿¡¼­ÀÇ Æ®¸®°Å ¿ª½Ã ¹æ¾Æ¼è°¡ ´ç°ÜÁö¸é ÀÚµ¿À¸·Î ÃÑ¾ËÀÌ ¹ß»çµÇµíÀÌ
---¾î¶°ÇÑ ÀÌº¥Æ®°¡ ¹ß»ıÇÏ¸é ±×¿¡ µû¶ó ´Ù¸¥ ÀÛ¾÷ÀÌ ÀÚµ¿À¸·Î Ã³¸®µÇ´Â °ÍÀ» ÀÇ¹ÌÇÑ´Ù.
+--PL/SQLì—ì„œì˜ íŠ¸ë¦¬ê±° ì—­ì‹œ ë°©ì•„ì‡ ê°€ ë‹¹ê²¨ì§€ë©´ ìë™ìœ¼ë¡œ ì´ì•Œì´ ë°œì‚¬ë˜ë“¯ì´
+--ì–´ë– í•œ ì´ë²¤íŠ¸ê°€ ë°œìƒí•˜ë©´ ê·¸ì— ë”°ë¼ ë‹¤ë¥¸ ì‘ì—…ì´ ìë™ìœ¼ë¡œ ì²˜ë¦¬ë˜ëŠ” ê²ƒì„ ì˜ë¯¸í•œë‹¤.
 /*
-Æ®¸®°Å¶õ Æ¯Á¤ Å×ÀÌºíÀÇ µ¥ÀÌÅÍ¿¡ º¯°æÀÌ °¡ÇØÁ³À» ¶§ ÀÚµ¿À¸·Î ¼öÇàµÇ´Â
-[ÀúÀå ÇÁ·Î½ÃÀú]¶ó°í ÇÒ ¼ö ÀÖ´Ù.
-¾Õ¼­ ¹è¿î ÀúÀå ÇÁ·Î½ÃÀú´Â ÇÊ¿äÇÒ ¶§¸¶´Ù »ç¿ëÀÚ°¡ Á÷Á¢
- EXECUTE ¸í·É¾î·Î È£ÃâÇØ¾ß Çß´Ù.
-ÇÏÁö¸¸ Æ®¸®°Å´Â ÀÌ¿Í ´Ş¸® Å×ÀÌºíÀÇ
-µ¥ÀÌÅÍ°¡ INSERT, UPDATE, DELETE ¹®¿¡ ÀÇÇØ º¯°æµÇ¾îÁú ¶§
-[ ÀÚµ¿À¸·Î ¼öÇàµÇ¹Ç·Î ÀÌ ±â´ÉÀ» ÀÌ¿ëÇÏ¸ç ¿©·¯ °¡Áö ÀÛ¾÷ ] À» ÇÒ ¼ö ÀÖ´Ù.
-ÀÌ·± ÀÌÀ¯·Î Æ®¸®°Å¸¦ »ç¿ëÀÚ°¡ Á÷Á¢ ½ÇÇà½ÃÅ³ ¼ö´Â ¾ø´Ù.
+íŠ¸ë¦¬ê±°ë€ íŠ¹ì • í…Œì´ë¸”ì˜ ë°ì´í„°ì— ë³€ê²½ì´ ê°€í•´ì¡Œì„ ë•Œ ìë™ìœ¼ë¡œ ìˆ˜í–‰ë˜ëŠ”
+[ì €ì¥ í”„ë¡œì‹œì €]ë¼ê³  í•  ìˆ˜ ìˆë‹¤.
+ì•ì„œ ë°°ìš´ ì €ì¥ í”„ë¡œì‹œì €ëŠ” í•„ìš”í•  ë•Œë§ˆë‹¤ ì‚¬ìš©ìê°€ ì§ì ‘
+ EXECUTE ëª…ë ¹ì–´ë¡œ í˜¸ì¶œí•´ì•¼ í–ˆë‹¤.
+í•˜ì§€ë§Œ íŠ¸ë¦¬ê±°ëŠ” ì´ì™€ ë‹¬ë¦¬ í…Œì´ë¸”ì˜
+ë°ì´í„°ê°€ INSERT, UPDATE, DELETE ë¬¸ì— ì˜í•´ ë³€ê²½ë˜ì–´ì§ˆ ë•Œ
+[ ìë™ìœ¼ë¡œ ìˆ˜í–‰ë˜ë¯€ë¡œ ì´ ê¸°ëŠ¥ì„ ì´ìš©í•˜ë©° ì—¬ëŸ¬ ê°€ì§€ ì‘ì—… ] ì„ í•  ìˆ˜ ìˆë‹¤.
+ì´ëŸ° ì´ìœ ë¡œ íŠ¸ë¦¬ê±°ë¥¼ ì‚¬ìš©ìê°€ ì§ì ‘ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ëŠ” ì—†ë‹¤.
  
  
---BEFORE : Å×ÀÌºí¿¡¼­ DML ½ÇÇàµÇ±â Àü¿¡ Æ®¸®°Å°¡ µ¿ÀÛ
---AFTER :  Å×ÀÌºí¿¡¼­ DML ½ÇÇàÈÄ¿¡ Æ®¸®°Å µ¿ÀÛ
+--BEFORE : í…Œì´ë¸”ì—ì„œ DML ì‹¤í–‰ë˜ê¸° ì „ì— íŠ¸ë¦¬ê±°ê°€ ë™ì‘
+--AFTER :  í…Œì´ë¸”ì—ì„œ DML ì‹¤í–‰í›„ì— íŠ¸ë¦¬ê±° ë™ì‘
  
 Syntax
 CREATE [OR REPLACE] TRIGGER trigger_name
@@ -726,38 +726,38 @@ CREATE [OR REPLACE] TRIGGER trigger_name
 [FOR EACH ROW [WHEN trigger_condition]
 trigger_body;
  
-trigger_name TRIGGER ÀÇ ½Äº°ÀÚ
-  BEFORE | AFTER DML ¹®ÀåÀÌ ½ÇÇàµÇ±â Àü¿¡ TRIGGER ¸¦ ½ÇÇàÇÒ °ÍÀÎÁö ½ÇÇàµÈ
-  ÈÄ¿¡ TRIGGER ¸¦ ½ÇÇàÇÒ °ÍÀÎÁö¸¦ Á¤ÀÇ
+trigger_name TRIGGER ì˜ ì‹ë³„ì
+  BEFORE | AFTER DML ë¬¸ì¥ì´ ì‹¤í–‰ë˜ê¸° ì „ì— TRIGGER ë¥¼ ì‹¤í–‰í•  ê²ƒì¸ì§€ ì‹¤í–‰ëœ
+  í›„ì— TRIGGER ë¥¼ ì‹¤í–‰í•  ê²ƒì¸ì§€ë¥¼ ì •ì˜
 triggering_event 
-TRIGGER ¸¦ ½ÇÇàÇÏ´Â DML(INSERT,UPDATE,DELETE)¹®À» ±â¼úÇÑ´Ù.
+TRIGGER ë¥¼ ì‹¤í–‰í•˜ëŠ” DML(INSERT,UPDATE,DELETE)ë¬¸ì„ ê¸°ìˆ í•œë‹¤.
  
-OF column TRIGGER °¡ ½ÇÇàµÇ´Â Å×ÀÌºí¿¡¼­ COLUMN ¸íÀ» ±â¼úÇÑ´Ù.
+OF column TRIGGER ê°€ ì‹¤í–‰ë˜ëŠ” í…Œì´ë¸”ì—ì„œ COLUMN ëª…ì„ ê¸°ìˆ í•œë‹¤.
  
-table_name TRIGGER °¡ ½ÇÇàµÇ´Â Å×ÀÌºí ÀÌ¸§
+table_name TRIGGER ê°€ ì‹¤í–‰ë˜ëŠ” í…Œì´ë¸” ì´ë¦„
  
-FOR EACH ROW ÀÌ ¿É¼ÇÀ» »ç¿ëÇÏ¸é 
-Çà ·¹º§ Æ®¸®°Å°¡ µÇ¾î triggering ¹®Àå
-¿¡ ÀÇÇØ ¿µÇâ¹ŞÀº Çà¿¡ ´ëÇØ °¢°¢ ÇÑ¹ø¾¿ ½ÇÇàÇÏ°í »ç¿ëÇÏÁö
-¾ÊÀ¸¸é ¹®Àå ·¹º§ Æ®¸®°Å°¡ µÇ¾î DML ¹®Àå ´ç ÇÑ¹ø¸¸ ½ÇÇàµÈ´Ù.
+FOR EACH ROW ì´ ì˜µì…˜ì„ ì‚¬ìš©í•˜ë©´ 
+í–‰ ë ˆë²¨ íŠ¸ë¦¬ê±°ê°€ ë˜ì–´ triggering ë¬¸ì¥
+ì— ì˜í•´ ì˜í–¥ë°›ì€ í–‰ì— ëŒ€í•´ ê°ê° í•œë²ˆì”© ì‹¤í–‰í•˜ê³  ì‚¬ìš©í•˜ì§€
+ì•Šìœ¼ë©´ ë¬¸ì¥ ë ˆë²¨ íŠ¸ë¦¬ê±°ê°€ ë˜ì–´ DML ë¬¸ì¥ ë‹¹ í•œë²ˆë§Œ ì‹¤í–‰ëœë‹¤.
  
  
-  TRIGGER ¿¡¼­ OLD ¿Í NEW
-    Çà ·¹º§ TRIGGER ¿¡¼­¸¸ »ç¿ëÇÒ ¼ö ÀÖ´Â ¿¹¾à¾î·Î Æ®¸®°Å ³»¿¡¼­ ÇöÀç Ã³¸®µÇ°í ÀÖ´Â Çà
-    À» ¾×¼¼½ºÇÒ ¼ö ÀÖ´Ù. Áï µÎ°³ÀÇ ÀÇ»ç ·¹ÄÚµå¸¦ ÅëÇÏ¿© ÀÌ ÀÛ¾÷À» ¼öÇàÇÒ ¼ö ÀÖ´Ù. :OLD
-    ´Â INSERT ¹®¿¡ ÀÇÇØ Á¤ÀÇµÇÁö ¾Ê°í :NEW ´Â DELETE ¿¡ ´ëÇØ Á¤ÀÇµÇÁö ¾Ê´Â´Ù. ±×·¯³ª
-    UPDATE ´Â :OLD ¿Í :NEW ¸¦ ¸ğµÎ Á¤ÀÇÇÑ´Ù. ¾Æ·¡ÀÇ Ç¥´Â OLD ¿Í NEW °ªÀ» Á¤ÀÇÇÑ Ç¥ÀÌ´Ù. 
-    ¹®Àå :OLD :NEW
-    INSERT ¸ğµç ÇÊµå´Â NULL ·Î Á¤ÀÇ ¹®ÀåÀÌ ¿ÏÀüÇÒ ¶§ »ğÀÔµÈ »õ·Î¿î °ª
-    UPDATE °»½ÅÇÏ±â ÀüÀÇ ¿ø·¡ °ª ¹®ÀåÀÌ ¿ÏÀüÇÒ ¶§ °»½ÅµÈ »õ·Î¿î °ª
-    DELETE ÇàÀÌ »èÁ¦µÇ±â ÀüÀÇ ¿ø·¡ °ª ¸ğµç ÇÊµå´Â NULL ÀÌ´Ù.
+  TRIGGER ì—ì„œ OLD ì™€ NEW
+    í–‰ ë ˆë²¨ TRIGGER ì—ì„œë§Œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì˜ˆì•½ì–´ë¡œ íŠ¸ë¦¬ê±° ë‚´ì—ì„œ í˜„ì¬ ì²˜ë¦¬ë˜ê³  ìˆëŠ” í–‰
+    ì„ ì•¡ì„¸ìŠ¤í•  ìˆ˜ ìˆë‹¤. ì¦‰ ë‘ê°œì˜ ì˜ì‚¬ ë ˆì½”ë“œë¥¼ í†µí•˜ì—¬ ì´ ì‘ì—…ì„ ìˆ˜í–‰í•  ìˆ˜ ìˆë‹¤. :OLD
+    ëŠ” INSERT ë¬¸ì— ì˜í•´ ì •ì˜ë˜ì§€ ì•Šê³  :NEW ëŠ” DELETE ì— ëŒ€í•´ ì •ì˜ë˜ì§€ ì•ŠëŠ”ë‹¤. ê·¸ëŸ¬ë‚˜
+    UPDATE ëŠ” :OLD ì™€ :NEW ë¥¼ ëª¨ë‘ ì •ì˜í•œë‹¤. ì•„ë˜ì˜ í‘œëŠ” OLD ì™€ NEW ê°’ì„ ì •ì˜í•œ í‘œì´ë‹¤. 
+    ë¬¸ì¥ :OLD :NEW
+    INSERT ëª¨ë“  í•„ë“œëŠ” NULL ë¡œ ì •ì˜ ë¬¸ì¥ì´ ì™„ì „í•  ë•Œ ì‚½ì…ëœ ìƒˆë¡œìš´ ê°’
+    UPDATE ê°±ì‹ í•˜ê¸° ì „ì˜ ì›ë˜ ê°’ ë¬¸ì¥ì´ ì™„ì „í•  ë•Œ ê°±ì‹ ëœ ìƒˆë¡œìš´ ê°’
+    DELETE í–‰ì´ ì‚­ì œë˜ê¸° ì „ì˜ ì›ë˜ ê°’ ëª¨ë“  í•„ë“œëŠ” NULL ì´ë‹¤.
  
-DROP TRIGGER ¸í·É¾î·Î Æ®¸®°Å¸¦ »èÁ¦ÇÒ ¼ö ÀÖ°í TRIGGER ¸¦ Àá½Ã disable ÇÒ ¼ö ÀÖ´Ù.
+DROP TRIGGER ëª…ë ¹ì–´ë¡œ íŠ¸ë¦¬ê±°ë¥¼ ì‚­ì œí•  ìˆ˜ ìˆê³  TRIGGER ë¥¼ ì ì‹œ disable í•  ìˆ˜ ìˆë‹¤.
 DROP TRIGGER trigger_name;
 ALTER TRIGGER trigger_name {DISABLE | ENABLE};
-TRIGGER ¿Í DATA DICTIONARY
-TRIGGER °¡ »ı¼ºµÉ ¶§ ¼Ò½º ÄÚµå´Â µ¥ÀÌÅÍ »çÀü VIEW ÀÎ user_triggers ¿¡ ÀúÀåµÈ´Ù. ÀÌ
-VIEW ´Â TRIGGER_BODY, WHERE Àı, Æ®¸®°Å¸µ Å×ÀÌºí, TRIGGER Å¸ÀÔÀ» Æ÷ÇÔ ÇÑ´Ù.
+TRIGGER ì™€ DATA DICTIONARY
+TRIGGER ê°€ ìƒì„±ë  ë•Œ ì†ŒìŠ¤ ì½”ë“œëŠ” ë°ì´í„° ì‚¬ì „ VIEW ì¸ user_triggers ì— ì €ì¥ëœë‹¤. ì´
+VIEW ëŠ” TRIGGER_BODY, WHERE ì ˆ, íŠ¸ë¦¬ê±°ë§ í…Œì´ë¸”, TRIGGER íƒ€ì…ì„ í¬í•¨ í•œë‹¤.
  
 */
 create table tri_emp
@@ -769,13 +769,13 @@ select * from tri_emp;
 
 create or replace trigger tri_01
 after insert on tri_emp
-BEGIN -- ÀÚµ¿ µ¿ÀÛÇÒ ³»¿ë
-    DBMS_OUTPUT.PUT_LINE('½ÅÀÔ»ç¿ø ÀÔ»ç');
+BEGIN -- ìë™ ë™ì‘í•  ë‚´ìš©
+    DBMS_OUTPUT.PUT_LINE('ì‹ ì…ì‚¬ì› ì…ì‚¬');
 END;
 
 
 insert into tri_emp
-values(1000,'È«±âµ¿');
+values(1000,'í™ê¸°ë™');
 
 rollback;
 
@@ -783,35 +783,35 @@ rollback;
 create or replace trigger tri_02
 after update on tri_emp
 BEGIN
-  DBMS_OUTPUT.PUT_LINE('½ÅÀÔ»ç¿ø ¼öÁ¤');
+  DBMS_OUTPUT.PUT_LINE('ì‹ ì…ì‚¬ì› ìˆ˜ì •');
 END;
 
---Å×ÀÌºí¿¡ trigger Á¤º¸
+--í…Œì´ë¸”ì— trigger ì •ë³´
 select * from user_triggers;
 
 
-insert into tri_emp values(100,'±èÀ¯½Å');
+insert into tri_emp values(100,'ê¹€ìœ ì‹ ');
 
 update tri_emp
-set ename='¾ÆÇÏ'
+set ename='ì•„í•˜'
 where empno=100;
 
 rollback;
 
---delete Æ®¸®°Å : tri_emp
---»ç¿øÅ×ÀÌºí »èÁ¦ (È­¸é Ãâ·Â)
+--delete íŠ¸ë¦¬ê±° : tri_emp
+--ì‚¬ì›í…Œì´ë¸” ì‚­ì œ (í™”ë©´ ì¶œë ¥)
 create or replace trigger tri_03
 after delete on tri_emp
 BEGIN
-  DBMS_OUTPUT.PUT_LINE('½ÅÀÔ»ç¿ø »èÁ¦');
+  DBMS_OUTPUT.PUT_LINE('ì‹ ì…ì‚¬ì› ì‚­ì œ');
 END;
 
-insert into tri_emp values(200,'È«±æµ¿');
-update tri_emp set ename='º¯°æ' where empno= 200;
+insert into tri_emp values(200,'í™ê¸¸ë™');
+update tri_emp set ename='ë³€ê²½' where empno= 200;
 delete from tri_emp where empno=200;
 
 --------------------------------------------------------------------------------
---Æ®¸®°ÅÀÇ È°¿ë
+--íŠ¸ë¦¬ê±°ì˜ í™œìš©
 create table tri_order
 (
   no number,
@@ -819,13 +819,13 @@ create table tri_order
   ord_date date
 );
 
---before Æ®¸®°ÅÀÇ µ¿ÀÛ½ÃÁ¡ÀÌ ½ÇÁ¦ tri_order Å×ÀÌºí insert µÇ±â Àü¿¡
---Æ®¸®°Å ¸ÕÀú µ¿ÀÛ ±× ÀÌÈÄ insert ÀÛ¾÷
+--before íŠ¸ë¦¬ê±°ì˜ ë™ì‘ì‹œì ì´ ì‹¤ì œ tri_order í…Œì´ë¸” insert ë˜ê¸° ì „ì—
+--íŠ¸ë¦¬ê±° ë¨¼ì € ë™ì‘ ê·¸ ì´í›„ insert ì‘ì—…
 create or replace trigger trigger_order
 before insert on tri_order
 BEGIN
   IF(to_char(sysdate,'HH24:MM') not between '09:00' and '14:00') THEN
-     RAISE_APPLICATION_ERROR(-20002, 'Çã¿ë½Ã°£ ¿À·ù ½¬¼¼¿ä');
+     RAISE_APPLICATION_ERROR(-20002, 'í—ˆìš©ì‹œê°„ ì˜¤ë¥˜ ì‰¬ì„¸ìš”');
   END IF;
 END;
 
@@ -834,27 +834,27 @@ insert into tri_order values(2,'notebook',sysdate);
 select * from tri_order;
 commit;
 
---Æ®¸®°Å »èÁ¦
+--íŠ¸ë¦¬ê±° ì‚­ì œ
 drop trigger trigger_order;
 
 
 --POINT
---PL_SQL µÎ°³ÀÇ °¡»óµ¥ÀÌÅÍ(Å×ÀÌºí) Á¦°ø
---:OLD > Æ®¸®°Å°¡ Ã³¸®ÇÑ ·¹ÄÚµåÀÇ ¿ø·¡ °ªÀ» ÀúÀå (ms-sql (deleted)
---:NEW > »õ°ªÀ» Æ÷ÇÔ                             (ms-sql (inserted)
+--PL_SQL ë‘ê°œì˜ ê°€ìƒë°ì´í„°(í…Œì´ë¸”) ì œê³µ
+--:OLD > íŠ¸ë¦¬ê±°ê°€ ì²˜ë¦¬í•œ ë ˆì½”ë“œì˜ ì›ë˜ ê°’ì„ ì €ì¥ (ms-sql (deleted)
+--:NEW > ìƒˆê°’ì„ í¬í•¨                             (ms-sql (inserted)
 
 create or replace trigger tri_order2
 before insert on tri_order
 for each row
 BEGIN
   IF(:NEW.ord_code) not in('desktop') THEN
-     RAISE_APPLICATION_ERROR(-20002, 'Á¦Ç°ÄÚµå ¿À·ù');
+     RAISE_APPLICATION_ERROR(-20002, 'ì œí’ˆì½”ë“œ ì˜¤ë¥˜');
   END IF;
 END;
 
 select * from tri_order;
 
---¿À·ù (desktop)
+--ì˜¤ë¥˜ (desktop)
 insert into tri_order values(200,'notebook',sysdate);
 
 insert into tri_order values(200,'desktop',sysdate);
@@ -863,21 +863,21 @@ select * from tri_order;
 commit;
 
 --------------------------------------------------------------------------------
---ÀÔ°í , Àç°í
+--ì…ê³  , ì¬ê³ 
 
-create table t_01 --ÀÔ°í
+create table t_01 --ì…ê³ 
 (
   no number,
   pname varchar2(20)
 );
 
-create table t_02 --Àç°í
+create table t_02 --ì¬ê³ 
 (
   no number,
   pname varchar2(20)
 );
 
---ÀÔ°í µ¥ÀÌÅÍ µé¾î¿À¸é °°Àº µ¥ÀÌÅÍ¸¦ Àç°í ÀÔ·Â
+--ì…ê³  ë°ì´í„° ë“¤ì–´ì˜¤ë©´ ê°™ì€ ë°ì´í„°ë¥¼ ì¬ê³  ì…ë ¥
 create or replace trigger insert_t_01
 after insert on t_01
 for each row
@@ -886,13 +886,13 @@ BEGIN
   values(:NEW.no ,:NEW.pname);
 END;
 
---ÀÔ°í
+--ì…ê³ 
 insert into t_01 values(1,'notebook');
 
 select * from t_01;
 select * from t_02;
 
--- ÀÔ°í Á¦Ç°ÀÌ º¯°æ (Àç°í º¯°æ)
+-- ì…ê³  ì œí’ˆì´ ë³€ê²½ (ì¬ê³  ë³€ê²½)
 create or replace trigger update_t_01
 after update on t_01
 for each row
@@ -910,8 +910,8 @@ select * from t_01;
 
 select * from t_02;
 
---delete Æ®¸®°Å ¸¸µé¾î º¸¼¼¿ä 
---ÀÔ°í µ¥ÀÌÅÍ delete from t_01 where no =1 »èÁ¦ µÇ¸é Àç°í »èÁ¦
+--delete íŠ¸ë¦¬ê±° ë§Œë“¤ì–´ ë³´ì„¸ìš” 
+--ì…ê³  ë°ì´í„° delete from t_01 where no =1 ì‚­ì œ ë˜ë©´ ì¬ê³  ì‚­ì œ
 create or replace trigger delete_tri_01
 after delete on t_01
 for each row
@@ -927,4 +927,4 @@ select* from t_02;
 
 commit;
 --------------------------------------------------------------------------------
--- °í»ıÇß´Ù Åä´Ú Åä´Ú ---------------------------------------------------------------------
+-- ê³ ìƒí–ˆë‹¤ í† ë‹¥ í† ë‹¥ ---------------------------------------------------------------------
