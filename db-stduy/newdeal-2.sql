@@ -1,7 +1,7 @@
 ﻿create or replace procedure usp_emplist
 (
    p_sal IN number,
-   p_cursor OUT SYS_REFCURSOR -- app ???? ???? ?????? ?????(Multi row)
+   p_cursor OUT SYS_REFCURSOR
 )
 is
   BEGIN
