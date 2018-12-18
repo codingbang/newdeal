@@ -13,6 +13,6 @@ public class App {
     String str = sc.nextLine();
     StringCompress compress = new StringCompress();
     compress.compress(str);
+    sc.close();
   }
-
 }
