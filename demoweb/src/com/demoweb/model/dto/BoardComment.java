@@ -1,14 +1,12 @@
 package com.demoweb.model.dto;
 
-import java.sql.Date;
-
 public class BoardComment {
 
 	private int commentNo;
 	private int boardNo;
 	private String writer;
 	private String content;
-	private Date regDate;
+	private String regDate;
 	
 	public int getCommentNo() {
 		return commentNo;
@@ -34,10 +32,10 @@ public class BoardComment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Date regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
 	
