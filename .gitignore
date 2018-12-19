@@ -11,5 +11,7 @@ temp/
 .DS_Store
 node_modules/
 security.properties
+/Servers/
 
 !build.gradle
+/.metadata/
