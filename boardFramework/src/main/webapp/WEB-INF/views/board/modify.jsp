@@ -1,26 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ include file="/common/public.jsp" %>
+<%@ include file="/WEB-INF/views/common/public.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ko">
 <head>
 <title>게시판 글쓰기</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${root}/css/skin_purple.css" type="text/css">
-<script type="text/javascript">
-function writeArticle(){
-	if(document.writeForm.subject.value == ""){
-		alert("제목을 입력하세요");
-		return;
-	}else if(document.writeForm.content.value == ""){
-		alert("내용을 입력하세요");
-		return;
-	}else{
-		document.writeForm.action = "";
-		document.writeForm.submit();
-	}
-}
-</script>
 </head>
 
 <body>
@@ -43,7 +29,7 @@ function writeArticle(){
 	<tr>
 		<td><img src="${root}/img/board/icon_arrow_04.gif" width="4"
 			height="11" border="0" align="absmiddle" vspace="4"></td>
-		<td width="100%" style="padding-left: 4px"><b>글쓰기</b></td>
+		<td width="100%" style="padding-left: 4px"><b>글수정</b></td>
 	</tr>
 	<tr>
 		<td width="630" colspan="2" height="2" class="bg_board_title_02"></td>
@@ -55,9 +41,6 @@ function writeArticle(){
 	style="margin: 0px">
 <div id="attach_file_hdn"></div>
 
-<input type="hidden" name="" value="">
-<input type="hidden" name="" value="">
-<input type="hidden" name="" value="">
 <input type="hidden" name="" value="">
 
 <table border="0" cellpadding="5" cellspacing="0" width="630"
@@ -98,10 +81,10 @@ function writeArticle(){
 	<tr>
 		<td align="center"><a href="javascript:writeArticle();"><img
 			src="${root}/img/board/btn_register.gif" width="42" height="21"
-			border="0" name="register" value="" alt="등록"></a> <a
+			border="0" name="register" alt="등록"></a> <a
 			href="javascript:history.back();"><img
 			src="${root}/img/board/b_cancel.gif" width="42" height="21"
-			border="0" name="cencel" value="" alt="취소"></a></td>
+			border="0" name="cencel" alt="취소"></a></td>
 	</tr>
 </table>
 </form>

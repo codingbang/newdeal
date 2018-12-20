@@ -4,6 +4,7 @@
 .log
 .gradle/
 .settings/
+.recommenders/
 bin/
 build/
 temp/
