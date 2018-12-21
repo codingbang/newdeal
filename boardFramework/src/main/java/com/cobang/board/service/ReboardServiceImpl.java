@@ -37,7 +37,12 @@ public class ReboardServiceImpl implements ReboardService {
 
   @Override
   public ReboardDto viewArticle(int seq) {
-    return sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
+    ReboardDto reboardDto = sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
+    if (reboardDto != null) {
+      reboardDto.setContent(reboardDto.getContent().replace("\n", "<br>"));
+      sqlSession.getMapper(CommonDao.class).updateHit(seq);
+    }
+    return reboardDto;
   }
 
   @Override

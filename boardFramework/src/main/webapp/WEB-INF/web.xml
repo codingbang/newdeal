@@ -27,7 +27,7 @@
   </filter>
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
-    <url-pattern>*.bit</url-pattern>
+    <url-pattern>*</url-pattern>
   </filter-mapping>
 
 	<!-- Processes application requests -->
@@ -43,8 +43,8 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.bit</url-pattern>
 		<url-pattern>/</url-pattern>
+		<url-pattern>*.bit</url-pattern>
 	</servlet-mapping>
 
 </web-app>

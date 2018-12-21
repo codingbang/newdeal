@@ -10,7 +10,7 @@ var deletepath;
 function initVars() {
 	listpath = control + "/list.bit";
 	viewpath = control + "/view.bit";
-	wirtepath = control + "/wirte.bit";
+	writepath = control + "/write.bit";
 	replypath = control + "/reply.bit";
 	mdoifypath = control + "/modify.bit";
 	deletepath = control + "/delete.bit";

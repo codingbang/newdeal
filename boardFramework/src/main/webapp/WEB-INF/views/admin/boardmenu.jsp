@@ -157,7 +157,7 @@ $(document).ready(function () {
       <div class="menu_body">
       
     </c:if>
-      <a href="${root}/${board.control}/write.bit?bcode=${board.bcode }&pg=1&key=&word=">${board.bname }</a>
+      <a href="${root}/${board.control}/list.bit?bcode=${board.bcode }&pg=1&key=&word=">${board.bname }</a>
       <c:if test="${loop.index < menu.size() -1 }">
         <c:if test="${idx != menu.get(loop.index + 1).ccode }">
           </div>
