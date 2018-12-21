@@ -5,8 +5,8 @@
 <%
 MemberDto memberDto = new MemberDto();
 memberDto.setId("newdeal");
-memberDto.setName("seoul city");
-memberDto.setEmail("newdeal@test.com");
+memberDto.setName("이종현");
+memberDto.setEmail("test@test.com");
 
 session.setAttribute("userInfo", memberDto);
 response.sendRedirect(request.getContextPath()+"/badmin/boardmenu.bit");

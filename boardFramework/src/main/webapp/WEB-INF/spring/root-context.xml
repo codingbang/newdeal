@@ -23,6 +23,12 @@
 	  <property name="mapperLocations">
 	    <list>
 	      <value>classpath:com/cobang/config/mybatis/board_admin.xml</value>
+	      <value>classpath:com/cobang/config/mybatis/album.xml</value>
+	      <value>classpath:com/cobang/config/mybatis/bbs.xml</value>
+	      <value>classpath:com/cobang/config/mybatis/board.xml</value>
+	      <value>classpath:com/cobang/config/mybatis/common.xml</value>
+	      <value>classpath:com/cobang/config/mybatis/memo.xml</value>
+	      <value>classpath:com/cobang/config/mybatis/reboard.xml</value>
 	    </list>
 	  </property>
 	</bean>

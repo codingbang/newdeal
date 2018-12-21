@@ -11,6 +11,7 @@
 		                  6, 'album',
 		                  7, 'bbs',
 		                  'board') control
+		                  
 		FROM board_list b 
 		JOIN category c
 		ON b.ccode = c.ccode
