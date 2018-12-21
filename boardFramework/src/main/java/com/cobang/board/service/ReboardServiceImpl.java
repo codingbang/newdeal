@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.cobang.board.dao.ReboardDao;
 import com.cobang.board.model.ReboardDto;
 import com.cobang.common.dao.CommonDao;
+import com.cobang.util.BoardConstance;
 
 @Service
 public class ReboardServiceImpl implements ReboardService {
@@ -26,13 +27,17 @@ public class ReboardServiceImpl implements ReboardService {
 
   @Override
   public List<ReboardDto> listArticle(Map<String, String> param) {
-    
-    return null;
+    int pg = Integer.parseInt(param.get("pg"));
+    int end = pg * BoardConstance.LIST_COUNT;
+    int start = end - BoardConstance.LIST_COUNT;
+    param.put("start", start + "");
+    param.put("end", end + "");
+    return sqlSession.getMapper(ReboardDao.class).listArticle(param);
   }
 
   @Override
   public ReboardDto viewArticle(int seq) {
-    return null;
+    return sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
   }
 
   @Override

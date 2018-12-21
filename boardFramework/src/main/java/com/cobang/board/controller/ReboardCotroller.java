@@ -1,5 +1,6 @@
 package com.cobang.board.controller;
 
+import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import com.cobang.board.model.ReboardDto;
 import com.cobang.board.service.ReboardService;
 import com.cobang.member.model.MemberDto;
@@ -19,6 +21,16 @@ public class ReboardCotroller {
   
   @Autowired
   private ReboardService reboardService;
+  
+  @RequestMapping(value="list.bit", method=RequestMethod.GET)
+  public ModelAndView list(@RequestParam Map<String, String> param) {
+    ModelAndView mv = new ModelAndView();
+    List<ReboardDto> list = reboardService.listArticle(param);
+    
+    mv.addObject("articlelist", list);
+    mv.setViewName("reboard/list");
+    return mv;
+  }
 	
   @RequestMapping(value="write.bit", method=RequestMethod.GET)
   public String write(@RequestParam Map<String, String> param) {
@@ -44,6 +56,17 @@ public class ReboardCotroller {
     }
     
     return "reboard/writeok";
+  }
+  
+  @RequestMapping(value="view.bit", method=RequestMethod.GET)
+  public String view(@RequestParam int seq, HttpSession session, Model model) {
+    MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+    if (memberDto != null) {
+      ReboardDto reboardDto = reboardService.viewArticle(seq);
+      model.addAttribute("article",reboardDto);
+    }
+    return "reboard/view";
+        
   }
 
 	

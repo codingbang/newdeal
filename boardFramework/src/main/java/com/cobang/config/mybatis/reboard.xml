@@ -13,5 +13,27 @@
       VALUES (reboard_rseq.nextval, #{seq}, #{ref}, 0, 0, 0, 0)
     SELECT * FROM dual
   </insert>
+  
+  <select id="viewArticle" parameterType="int" resultType="reboardDto">
+    SELECT b.seq, b.name, b.id, b.email, b.subject, b.content, b.hit, b.bcode, b.logtime, r.rseq, r.REF, r.lev, r.step, r.pseq, r.reply
+		FROM board b, reboard r
+		WHERE b.seq = r.seq
+		AND b.seq = #{seq}
+  </select>
+  
+  <select id="listArticle" parameterType="map" resultType="reboardDto">
+    SELECT temp2.*
+		FROM (SELECT rownum rnm, temp.*
+		      FROM (SELECT b.seq, b.name, b.id, b.email, b.subject, b.content, b.hit, b.bcode,
+		                   DECODE(TO_CHAR(b.logtime, 'yymmdd'), TO_CHAR(SYSDATE, 'yymmdd'), 
+		                          TO_CHAR(b.logtime, 'hh24:mi:ss'), TO_CHAR(b.logtime, 'yy.mm.dd')) logtime, 
+		                   r.rseq, r.REF, r.lev, r.step, r.pseq, r.reply
+		            FROM board b, reboard r
+		            WHERE b.seq = r.seq
+		            AND bcode = #{bcode}
+		            ORDER BY seq desc) temp
+		      WHERE ROWNUM &lt;= #{end} ) temp2
+		WHERE temp2.rnm > #{start}
+  </select>
 
 </mapper>

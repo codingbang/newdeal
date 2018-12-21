@@ -4,7 +4,7 @@
 <c:set var="root" value="${pagetContext.request.contextPath }" />
 <%
 MemberDto memberDto = new MemberDto();
-memberDto.setId("newdeal");
+memberDto.setId("testtest");
 memberDto.setName("이종현");
 memberDto.setEmail("test@test.com");
 
