@@ -76,6 +76,37 @@ public class ReboardCotroller {
     return "reboard/view";
         
   }
+  
+  @RequestMapping(value="reply.bit", method=RequestMethod.GET)
+  public String reply(@RequestParam int seq, HttpSession session, Model model) {
+    MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+    if (memberDto != null) {
+      ReboardDto reboardDto = reboardService.viewArticle(seq);
+      model.addAttribute("article",reboardDto);
+    }
+    return "reboard/reply";
+  }
+  
+  @RequestMapping(value="reply.bit", method=RequestMethod.POST)
+  public String reply(ReboardDto reboardDto, HttpSession session, @RequestParam Map<String, String> param, Model model) {
+    MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+    if (memberDto != null) {
+      reboardDto.setId(memberDto.getId());
+      reboardDto.setName(memberDto.getName());
+      reboardDto.setEmail(memberDto.getEmail());
+      
+      int seq = reboardService.replyArticle(reboardDto);
+      if (seq != 0) {
+        model.addAttribute("wseq", seq);
+      } else {
+        model.addAttribute("errorMsg", "서버 문제로 글작성이 실패 했습니다.!!!");
+      }
+    } else {
+      model.addAttribute("errorMsg", "회원전용 게시판입니다.!!!");
+    }
+    
+    return "reboard/writeok";
+  }
 
 	
 }

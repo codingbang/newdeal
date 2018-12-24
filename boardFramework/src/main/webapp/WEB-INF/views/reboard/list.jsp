@@ -115,7 +115,9 @@
 		<!--td>
      
      </td-->
-		<td style="word-break: break-all;">${article.subject.replace("<","&lt;") }&nbsp;&nbsp;&nbsp;</td>
+		<td style="word-break: break-all;">
+		<img src="${root }/img/board/blank.gif" height="1" width="${article.lev * 10 }">
+		<span>${article.subject.replace("<","&lt;") }&nbsp;&nbsp;&nbsp;</span></td>
 		<td></td>
 		<td style="word-break: break-all;"><a href="javascript:;"
 			onClick="showSideView();" class="link_board_04">${article.name }</a></td>
@@ -172,7 +174,7 @@
 			class="inp" style="margin-top: -19px;"> </span> 
 			<img src="${root}/img/board/sbtn_s.gif" width="32" height="18"
 			border="0" align="absmiddle" alt="검색" id="searchBtn"> 
-			<c:if test="userInfo != null">
+			<c:if test="${userInfo != null}">
 			 <img src="${root}/img/board/sbtn_mytext.gif" width="82" height="20"
 			 align="absmiddle" alt="내가 쓴 글 보기" id="myBtn">
 			</c:if>

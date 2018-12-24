@@ -9,6 +9,7 @@ public interface ReboardService {
   public int WriteArticle(ReboardDto reboardDto);
   public List<ReboardDto> listArticle(Map<String, String> param);
   public ReboardDto viewArticle(int seq);
+  public ReboardDto getArticle(int seq);
   public int replyArticle(ReboardDto reboardDto);
   
   public void modifyArticle(ReboardDto reboardDto);

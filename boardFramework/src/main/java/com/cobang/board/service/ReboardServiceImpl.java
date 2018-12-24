@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.cobang.board.dao.ReboardDao;
 import com.cobang.board.model.ReboardDto;
 import com.cobang.common.dao.CommonDao;
@@ -46,8 +47,20 @@ public class ReboardServiceImpl implements ReboardService {
   }
 
   @Override
+  public ReboardDto getArticle(int seq) {
+    return sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
+  }
+  
+  @Override
+  @Transactional
   public int replyArticle(ReboardDto reboardDto) {
-    return 0;
+    int seq = sqlSession.getMapper(CommonDao.class).getNextSeq();
+    reboardDto.setSeq(seq);
+    ReboardDao reboardDao = sqlSession.getMapper(ReboardDao.class);
+    reboardDao.updateStep(reboardDto);
+    reboardDao.replyArticle(reboardDto);
+    reboardDao.updateReply(reboardDto.getPseq());
+    return seq;
   }
 
   @Override
@@ -59,5 +72,6 @@ public class ReboardServiceImpl implements ReboardService {
   public void deleteArticle(int seq) {
 
   }
+
 
 }

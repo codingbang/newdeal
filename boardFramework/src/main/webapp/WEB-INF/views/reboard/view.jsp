@@ -18,6 +18,11 @@ document.location.href="${root}/index.jsp";
         $("#commonForm").attr("method", "get").attr("action", writepath).submit();
       });
       
+      $(".replyBtn").click(function() {
+    	  $('#seq').val("${article.seq}");
+        $("#commonForm").attr("method", "get").attr("action", replypath).submit();
+      });
+      
       $(".newpage").click(function() {
     	  $("#pg").val(1);
     	  $("#key").val("");
@@ -55,7 +60,7 @@ document.location.href="${root}/index.jsp";
 		  <img class="writeBtn"
 			 src="${root}/img/board/btn_write_01.gif" width="64" height="22"
 			 border="0" align="absmiddle" alt="글쓰기">
-			<img
+			<img class="replyBtn"
 			 src="${root}/img/board/btn_reply.gif" width="40" height="22"
 			 border="0" align="absmiddle" alt="답글">
 			
@@ -143,7 +148,7 @@ document.location.href="${root}/index.jsp";
 		  <img class="writeBtn"
        src="${root}/img/board/btn_write_01.gif" width="64" height="22"
        border="0" align="absmiddle" alt="글쓰기">
-      <img
+      <img class="replyBtn"
        src="${root}/img/board/btn_reply.gif" width="40" height="22"
        border="0" align="absmiddle" alt="답글">
        

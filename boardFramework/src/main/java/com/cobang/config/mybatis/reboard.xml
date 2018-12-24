@@ -41,9 +41,29 @@
 		                </otherwise>
 		              </choose>
 		            </if>
-		            ORDER BY seq desc) temp
+		            ORDER BY ref desc, step) temp
 		      WHERE ROWNUM &lt;= #{end} ) temp2
 		WHERE temp2.rnm > #{start}
   </select>
+  
+  <update id="updateStep" parameterType="reboardDto">
+    UPDATE reboard SET step = step+1
+    WHERE ref = #{ref}
+    AND step > #{step}
+  </update>
+  
+  <insert id="replyArticle" parameterType="reboardDto">
+    INSERT  ALL
+      INTO board (seq, name, id, email, subject, content, hit, logtime, bcode)
+      VALUES (#{seq}, #{name}, #{id}, #{email}, #{subject}, #{content}, 0, sysdate, #{bcode})
+      INTO reboard (rseq, seq, ref, lev, step, pseq, reply)
+      VALUES (reboard_rseq.nextval, #{seq}, #{ref}, #{lev}+1, #{step}+1, #{pseq}, 0)
+    SELECT * FROM dual
+  </insert>
+  
+  <update id="updateReply" parameterType="int">
+    UPDATE reboard SET reply = reply+1
+    WHERE seq = #{pseq}
+  </update>
 
 </mapper>
