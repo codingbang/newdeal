@@ -31,6 +31,16 @@
 		            FROM board b, reboard r
 		            WHERE b.seq = r.seq
 		            AND bcode = #{bcode}
+		            <if test="word != null and word != ''">
+		              <choose>
+		                <when test="key == 'subject'">
+		                  AND b.subject like '%'||#{word}||'%'
+		                </when>
+		                <otherwise>
+		                  AND b.${key} = #{word}
+		                </otherwise>
+		              </choose>
+		            </if>
 		            ORDER BY seq desc) temp
 		      WHERE ROWNUM &lt;= #{end} ) temp2
 		WHERE temp2.rnm > #{start}

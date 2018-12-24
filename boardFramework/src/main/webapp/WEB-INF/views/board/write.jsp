@@ -4,23 +4,23 @@
 
 <script type="text/javascript">
 function writeArticle(){
-	if(document.writeForm.subject.value == ""){
-		alert("제목을 입력하세요");
-		return;
-	}else if(document.writeForm.content.value == ""){
-		alert("내용을 입력하세요");
-		return;
-	}else{
-		document.writeForm.action = "";
-		document.writeForm.submit();
-	}
+  if(document.writeForm.subject.value == ""){
+    alert("제목을 입력하세요");
+    return;
+  }else if(document.writeForm.content.value == ""){
+    alert("내용을 입력하세요");
+    return;
+  }else{
+    document.writeForm.action = "${root}/board/write.bit";
+    document.writeForm.submit();
+  }
 }
 </script>
 
 <!-- title -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
-		<td><img src="${root}/resources/board/img/board/m_icon_board.gif" width="9"
+		<td><img src="${root}/img/board/m_icon_board.gif" width="9"
 			height="9" border="0" align="absmiddle" style="margin-top: -2px">
 		<b>자유게시판</b> &nbsp;<font style="font-size: 8pt">|</font>&nbsp; 자유로운 글을
 		올리는 공간입니다<br>
@@ -34,7 +34,7 @@ function writeArticle(){
 
 <table border="0" cellpadding="0" cellspacing="0" width="630">
 	<tr>
-		<td><img src="${root}/resources/board/img/board/icon_arrow_04.gif" width="4"
+		<td><img src="${root}/img/board/icon_arrow_04.gif" width="4"
 			height="11" border="0" align="absmiddle" vspace="4"></td>
 		<td width="100%" style="padding-left: 4px"><b>글쓰기</b></td>
 	</tr>
@@ -48,10 +48,10 @@ function writeArticle(){
 	style="margin: 0px">
 <div id="attach_file_hdn"></div>
 
-<input type="hidden" name="" value="">
-<input type="hidden" name="" value="">
-<input type="hidden" name="" value="">
-<input type="hidden" name="" value="">
+<input type="hidden" name="bcode" value="${bcode }">
+<input type="hidden" name="pg" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="word" value="">
 
 <table border="0" cellpadding="5" cellspacing="0" width="630"
 	style="table-layout: fixed">

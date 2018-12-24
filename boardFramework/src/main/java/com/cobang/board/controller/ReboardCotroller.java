@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.cobang.board.model.ReboardDto;
 import com.cobang.board.service.ReboardService;
+import com.cobang.common.service.CommonService;
 import com.cobang.member.model.MemberDto;
+import com.cobang.util.PageNavigation;
 
 
 @Controller
@@ -20,14 +22,20 @@ import com.cobang.member.model.MemberDto;
 public class ReboardCotroller {
   
   @Autowired
+  private CommonService commonService;
+  @Autowired
   private ReboardService reboardService;
   
   @RequestMapping(value="list.bit", method=RequestMethod.GET)
   public ModelAndView list(@RequestParam Map<String, String> param) {
     ModelAndView mv = new ModelAndView();
     List<ReboardDto> list = reboardService.listArticle(param);
+    PageNavigation navigation = commonService.makePageNavigation(param);
+    navigation.setRoot("/board");
+    navigation.makeNavigator();
     
     mv.addObject("articlelist", list);
+    mv.addObject("navigator", navigation);
     mv.setViewName("reboard/list");
     return mv;
   }
