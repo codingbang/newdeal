@@ -45,6 +45,13 @@
     
     })
 </script>
+<style>
+.posting:hover {
+  cursor: pointer;
+  color: #ff6633;
+}
+
+</style>
 <!-- title start -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
@@ -108,7 +115,7 @@
 
 	<!-- 공지기능 적용끝  -->
   <c:forEach var="article" items="${articlelist}">
-	<tr class="posting" article-no="${article.seq }">
+	<tr>
 		<td align="center" class="text_gray">${article.seq }</td>
 		<td></td>
 		<td nowrap class="onetext" style="padding-right: 5px"></td>
@@ -116,8 +123,8 @@
      
      </td-->
 		<td style="word-break: break-all;">
-		<img src="${root }/img/board/blank.gif" height="1" width="${article.lev * 10 }">
-		<span>${article.subject.replace("<","&lt;") }&nbsp;&nbsp;&nbsp;</span></td>
+		<%-- <img src="${root }/img/board/blank.gif" height="1" width="${article.lev * 10 }"> --%>
+		<span class="posting" article-no="${article.seq }">${article.subject.replace("<","&lt;") }&nbsp;&nbsp;&nbsp;</span></a>
 		<td></td>
 		<td style="word-break: break-all;"><a href="javascript:;"
 			onClick="showSideView();" class="link_board_04">${article.name }</a></td>

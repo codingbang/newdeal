@@ -9,6 +9,7 @@
     INSERT  ALL
       INTO board (seq, name, id, email, subject, content, hit, logtime, bcode)
       VALUES (#{seq}, #{name}, #{id}, #{email}, #{subject}, #{content}, 0, sysdate, #{bcode})
+      
       INTO album (aseq, seq, orign_picture, save_picture, savefolder, type)
       VALUES (album_aseq.nextval, #{seq}, #{orignPicture}, #{savePicture}, #{saveFolder}, 0)
     SELECT * FROM dual

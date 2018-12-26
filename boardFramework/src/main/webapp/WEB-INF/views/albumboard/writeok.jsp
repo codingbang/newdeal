@@ -2,6 +2,22 @@
   pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/public.jsp" %>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+      control = "${root}/album";
+      initVars();
+      
+      $("#viewBtn").click(function() {
+        $("#seq").val("${wseq}");
+        $("#commonForm").attr("method", "get").attr("action", viewpath).submit();
+      });
+      
+      $("#listBtn").click(function() {
+        $("#commonForm").attr("method", "get").attr("action", listpath).submit();
+      })
+    })
+  </script>
+
 <table width="100%" cellpadding="6" cellspacing="2" border="0"
 	bgcolor="#ffffff" style="border: #e1e1e1 solid 1px">
 	<tr>
@@ -19,12 +35,12 @@
 			align="center"><b>게시물이 등록되었습니다.</b><br>
 		<br>
 
-		<div align="center"><a href=""><img
+		<div align="center"><img id="viewBtn"
 			src="${root}/img/board/b_wirtecf.gif" width="91" height="21"
-			border="0" align="absmiddle" alt="작성한 글 확인" hspace="10"></a><a
-			href=""><img src="${root}/img/board/poll_listbu1.gif"
+			border="0" align="absmiddle" alt="작성한 글 확인" hspace="10">
+			<img id="listBtn" src="${root}/img/board/poll_listbu1.gif"
 			width="62" height="21" border="0" align="absmiddle" alt="목록보기"
-			hspace="10"></a>
+			hspace="10">
 		</td>
 	</tr>
 </table>

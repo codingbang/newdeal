@@ -170,7 +170,8 @@ $(document).ready(function () {
 			<nav id="nav">
 				<ul>
 					<li class="current"><a href="/">Home</a></li>
-					<li class="dropdown"><a href="#">Dropdown</a>
+					<li class="dropdown"><a href="javascript:void(0)">Dropdown</a>
+					
 						<ul class="dropdown-content">
 							<li><a href="#">Lorem ipsum</a></li>
 							<li><a href="#">Magna veroeros</a></li>
@@ -185,9 +186,9 @@ $(document).ready(function () {
 								</ul></li>
 							<li><a href="#">Nisl tempus</a></li>
 						</ul></li>
-					<li><a href="left-sidebar.html">Left Sidebar</a></li>
-					<li><a href="right-sidebar.html">Right Sidebar</a></li>
-					<li><a href="no-sidebar.html">No Sidebar</a></li>
+					<li><a href="#">Left Sidebar</a></li>
+					<li><a href="#">Right Sidebar</a></li>
+					<li><a href="#">No Sidebar</a></li>
 				</ul>
 			</nav>
 		</div>
