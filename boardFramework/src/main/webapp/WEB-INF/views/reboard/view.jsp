@@ -32,11 +32,12 @@ document.location.href="${root}/index.jsp";
 			});
 
 			$(".mvpage").click(function() {
-						$("#commonForm").attr("method", "get").attr("action", listpath).submit();
+				$("#commonForm").attr("method", "get").attr("action", listpath).submit();
 			});
 
 			/* ========댓글======== */
-
+      
+			//댓글 작성 이벤트
 			$("#memoBtn").click(function() {
 				var seq = "${article.seq}";
 				var mcontent = $("#mcontent").val();
@@ -60,6 +61,60 @@ document.location.href="${root}/index.jsp";
 				}
 			});
 			
+			//댓글 수정폼 표시 이벤트
+			$(document).on("click",".viewMemoModifyBtn",function(){
+				var mseq = $(this).parent("td").attr("memo-mseq");
+	      $("#div"+mseq).css("display", "");
+      });
+			
+			//댓글 수정폼 표시 취소 이벤트
+			$(document).on("click",".memoCancelBtn",function(){
+        $(this).parent("div").css("display", "none");
+      });
+			
+			//댓글 최종 수정버튼 이벤트
+			$(document).on("click",".memoModifyBtn",function(){
+        $(this).parent("div").css("display", "none");
+        var mseq = $(this).parents("td").attr("memo-mseq");
+        var seq = '${article.seq}';
+        var mcontent = $("#mcontent" + mseq).val();
+        var parameter = JSON.stringify({
+	            'seq' : seq,
+	            'mseq' : mseq,
+	            'mcontent' : mcontent
+            });
+        if (mcontent.trim().length != 0) {
+    	   $.ajax({
+             url : '${root}/memo',
+             type : 'PUT',
+             contentType : 'application/json;charset=UTF-8',
+             data : parameter,
+             dataType : 'json',
+             success : function(data) {
+               makeList(data);
+             }
+          });
+		
+    	   }
+      });
+			
+			//댓글 삭제 버튼 클릭이벤트
+			$(document).on("click",".memoDeleteBtn",function(){
+				if (confirm("삭제하시겠습니까?")) {
+					var mseq = $(this).parent("td").attr("memo-mseq");
+					$.ajax({
+             url : '${root}/memo/${article.seq}/'+mseq,
+             type : 'DELETE',
+             contentType : 'application/json;charset=UTF-8',
+             dataType : 'json',
+             success : function(data) {
+            	 makeList(data);
+             }
+          });
+				}
+      });
+			
+			//댓글 리스트 비동기로 불러오기
 			function getMemoList() {
 				$.ajax({
            url : '${root}/memo/${article.seq}',
@@ -72,21 +127,102 @@ document.location.href="${root}/index.jsp";
         });
 			}
 			
+			//DOM을 이용한 댓글 리스트 동적 HTML 생성
+			function makeList(memos) {
+        $("#memoview").empty();
+        var mlist = memos.memolist;
+        var len = mlist.length;
+        
+        var domElement;
+        var domElement2;
+        var domElement3;
+        for (var i = 0; i < len; i++) {
+          domElement = $('<tr>');
+          domElement2 = $('<tr>');
+          domElement3 = $('<tr>');
+          
+          domElement.append(
+              $('<td>').attr("width", 150).attr("height",40).append(
+                  mlist[i].name
+              ) 
+          );
+          domElement.append(
+              $('<td>').append(
+                  mlist[i].mcontent
+              )
+          );
+          domElement.append(
+              $('<td>').attr("width", 200).append(
+                   mlist[i].mtime
+              )
+          );
+              
+                            
+          if (mlist[i].id == '${userInfo.id}') {
+            domElement.append(
+                $('<td>').attr("width", 120).attr("memo-mseq",  mlist[i].mseq).append(
+                        $('<label>').attr("class", "viewMemoModifyBtn").append("수정")
+                ).append(
+                  $('<label>').attr("class", "memoDeleteBtn").append("삭제")   
+                )
+            );
+            
+
+            domElement2.append(
+                $('<td>').attr("colspan", 4).attr("memo-mseq",  mlist[i].mseq).append(
+                    $('<div>').attr("id", "div"+mlist[i].mseq).attr("style", "display: none;").append(
+                        $('<textarea>').attr("id", "mcontent"+mlist[i].mseq).attr("style", "resize: none;").attr("rows", 3).attr("cols", 215).append(
+                            mlist[i].mcontent
+                        )
+                    ).append(
+                        $('<input>').attr("type","button").attr("value", "수정").attr("class", "memoModifyBtn")
+                    ).append(
+                        $('<input>').attr("type","button").attr("value", "삭제").attr("class", "memoCancelBtn")
+                    )
+                )
+            );
+          }
+          
+          domElement3.append(
+              $('<td>').attr("class","bg_board_title_02").attr("height",1).attr("colspan",11).attr("style","overflow: hidden; padding: 0px")
+          );
+          
+          
+          $("#memoview").append(domElement).append(domElement2).append(domElement3);
+
+       }
+      }
+			
+			
+			/* 
+			//String을 이용한 댓글 리스트 동적 HTML 생성
 			function makeList(memos) {
 				$("#memoview").empty();
 				var mlist = memos.memolist;
 			  var output = '';
 			  var len = mlist.length;
+
 			  for (var i = 0; i < len; i++) {
+
 				  output += '<tr>';
 				  output += ' <td width="150" height="40">' + mlist[i].name + '</td>';
 				  output += ' <td>' + mlist[i].mcontent + '</td>';
 				  output += ' <td width="200">' + mlist[i].mtime + '</td>';
 				  if (mlist[i].id == '${userInfo.id}') {
-					  output += '  <td width="120">';
-					  output += '    <label>수정</label>';
-					  output += '    <label>삭제</label>';
+					  output += '  <td width="120" memo-mseq="'+ mlist[i].mseq +'">';
+					  output += '    <label class="viewMemoModifyBtn">수정</label>';
+					  output += '    <label class="memoDeleteBtn">삭제</label>';
 					  output += '  </td>';
+					  output += '</tr>';
+					  output += '<tr>';
+					  output += '  <td colspan="4" memo-mseq="'+ mlist[i].mseq +'">';
+					  output += '    <div id="div' + mlist[i].mseq + '" style="display: none;">';
+					  output += '      <textarea id="mcontent' + mlist[i].mseq + '" style="resize: none;" rows="3" cols="215">' + mlist[i].mcontent + '</textarea>';
+					  output += '      <input type="button" value="수정" class="memoModifyBtn">';
+					  output += '      <input type="button" value="취소" class="memoCancelBtn">';
+					  output += '    </div>';
+					  output += '  </td>';
+					  output += '</tr>';
 					}
 				  output += '</tr>';
 				  
@@ -98,8 +234,9 @@ document.location.href="${root}/index.jsp";
 			 }
 			 $("#memoview").append(output);
 			}
+			 */
 			
-		})
+		});
 	</script>
 	<!-- title -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -249,8 +386,11 @@ document.location.href="${root}/index.jsp";
        <input type="button" id="memoBtn" value="작성">
     </td>
   </tr>
-  <tbody id="memoview"></tbody>
+  <tbody id="memoview">
+  
+  </tbody>
 
 </table>
+
 </body>
 </html>

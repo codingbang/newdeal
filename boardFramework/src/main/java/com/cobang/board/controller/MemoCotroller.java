@@ -29,12 +29,28 @@ public class MemoCotroller {
       int cnt = memoService.writeMemo(memoDto);
     }
     String memolist = memoService.listMemo(memoDto.getSeq());
-    System.out.println(memolist);
     return memolist;
   }
   
   @RequestMapping(value="memo/{seq}", method=RequestMethod.GET)
   public @ResponseBody String list(@PathVariable(value="seq") int seq) {
+    String memolist = memoService.listMemo(seq);
+    return memolist;
+  }
+  
+  @RequestMapping(value="memo", method=RequestMethod.PUT, headers= {"Content-type=application/json"} )
+  public @ResponseBody String modify(@RequestBody MemoDto memoDto, HttpSession session) {
+    MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+    if (memberDto != null) {
+      int cnt = memoService.modifyMemo(memoDto);
+    }
+    String memolist = memoService.listMemo(memoDto.getSeq());
+    return memolist;
+  }
+  
+  @RequestMapping(value="memo/{seq}/{mseq}", method=RequestMethod.DELETE)
+  public @ResponseBody String delete(@PathVariable(value="mseq") int mseq, @PathVariable(value="seq") int seq) {
+    memoService.deleteMemo(mseq);
     String memolist = memoService.listMemo(seq);
     return memolist;
   }

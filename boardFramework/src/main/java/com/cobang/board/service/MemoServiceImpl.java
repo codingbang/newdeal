@@ -42,14 +42,12 @@ public class MemoServiceImpl implements MemoService {
 
   @Override
   public int modifyMemo(MemoDto memoDto) {
-    
-    return 0;
+    return sqlSession.getMapper(MemoDao.class).modifyMemo(memoDto);
   }
 
   @Override
   public int deleteMemo(int mseq) {
-    
-    return 0;
+    return sqlSession.getMapper(MemoDao.class).deleteMemo(mseq);
   }
 
   

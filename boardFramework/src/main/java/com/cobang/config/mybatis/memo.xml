@@ -16,6 +16,18 @@
     WHERE seq = #{seq}
     ORDER BY mtime
   </select>
+  
+  
+  <update id="modifyMemo" parameterType="memoDto">
+    UPDATE memo
+    SET mcontent = #{mcontent}
+    WHERE mseq = #{mseq}
+  </update>
+  
+  <update id="deleteMemo" parameterType="int">
+    DELETE FROM memo
+    WHERE mseq = #{mseq}
+  </update>
 
 
 </mapper>

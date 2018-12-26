@@ -117,7 +117,7 @@ div.header {
   text-decoration: underline;
 }
 
-li a, .dropbtn {
+/* li a, .dropbtn {
   display: inline-block;
   text-decoration: none;
 }
@@ -128,9 +128,9 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
   display: inline-block;
-}
+} */
 
-.dropdown-content {
+.dropdown-content li {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -139,19 +139,19 @@ li.dropdown {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content li {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content li:hover {background-color: #f1f1f1}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 </style>
 
 <script type="text/javascript">
@@ -170,7 +170,7 @@ $(document).ready(function () {
 			<nav id="nav">
 				<ul>
 					<li class="current"><a href="/">Home</a></li>
-					<li class="dropdown"><a href="javascript:void(0)">Dropdown</a>
+					<li class="dropdown"><a href="#">Dropdown</a>
 					
 						<ul class="dropdown-content">
 							<li><a href="#">Lorem ipsum</a></li>
@@ -195,6 +195,7 @@ $(document).ready(function () {
 	</div>
 
 
+  
 
 	<div id="boardmenu" align="center" class="menu_list">
   <c:set var="idx" value="0"/>
