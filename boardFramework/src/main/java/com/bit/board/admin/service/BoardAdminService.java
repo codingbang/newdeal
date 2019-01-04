@@ -1,9 +1,9 @@
-package com.cobang.board.admin.service;
+package com.bit.board.admin.service;
 
 import java.util.List;
-import com.cobang.board.admin.model.BoardListDto;
-import com.cobang.board.admin.model.BoardTypeDto;
-import com.cobang.board.admin.model.CategoryDto;
+import com.bit.board.admin.model.BoardListDto;
+import com.bit.board.admin.model.BoardTypeDto;
+import com.bit.board.admin.model.CategoryDto;
 
 public interface BoardAdminService {
   

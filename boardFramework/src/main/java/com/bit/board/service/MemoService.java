@@ -1,6 +1,6 @@
-package com.cobang.board.service;
+package com.bit.board.service;
 
-import com.cobang.board.model.MemoDto;
+import com.bit.board.model.MemoDto;
 
 public interface MemoService {
   

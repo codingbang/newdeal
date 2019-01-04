@@ -1,4 +1,4 @@
-package com.cobang.board.service;
+package com.bit.board.service;
 
 public interface BbsService {
 

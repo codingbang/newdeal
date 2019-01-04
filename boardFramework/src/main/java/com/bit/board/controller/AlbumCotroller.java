@@ -1,4 +1,4 @@
-package com.cobang.board.controller;
+package com.bit.board.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import com.cobang.board.model.AlbumDto;
-import com.cobang.board.service.AlbumService;
-import com.cobang.common.service.CommonService;
-import com.cobang.member.model.MemberDto;
-import com.cobang.util.PageNavigation;
+import com.bit.board.model.AlbumDto;
+import com.bit.board.service.AlbumService;
+import com.bit.common.service.CommonService;
+import com.bit.member.model.MemberDto;
+import com.bit.util.PageNavigation;
 
 
 @Controller

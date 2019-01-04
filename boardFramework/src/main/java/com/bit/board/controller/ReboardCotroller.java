@@ -1,4 +1,4 @@
-package com.cobang.board.controller;
+package com.bit.board.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.cobang.board.model.ReboardDto;
-import com.cobang.board.service.ReboardService;
-import com.cobang.common.service.CommonService;
-import com.cobang.member.model.MemberDto;
-import com.cobang.util.PageNavigation;
+import com.bit.board.model.ReboardDto;
+import com.bit.board.service.ReboardService;
+import com.bit.common.service.CommonService;
+import com.bit.member.model.MemberDto;
+import com.bit.util.PageNavigation;
 
 
 @Controller

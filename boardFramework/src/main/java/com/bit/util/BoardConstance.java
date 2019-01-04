@@ -1,4 +1,4 @@
-package com.cobang.util;
+package com.bit.util;
 
 public class BoardConstance {
   public final static int LIST_COUNT = 20;

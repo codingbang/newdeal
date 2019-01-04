@@ -1,4 +1,4 @@
-package com.cobang.board.model;
+package com.bit.board.model;
 
 public class ReboardDto extends BoardDto {
   

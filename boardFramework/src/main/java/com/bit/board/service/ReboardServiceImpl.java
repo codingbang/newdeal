@@ -1,4 +1,4 @@
-package com.cobang.board.service;
+package com.bit.board.service;
 
 import java.util.List;
 import java.util.Map;
@@ -6,10 +6,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.cobang.board.dao.ReboardDao;
-import com.cobang.board.model.ReboardDto;
-import com.cobang.common.dao.CommonDao;
-import com.cobang.util.BoardConstance;
+import com.bit.board.dao.ReboardDao;
+import com.bit.board.model.ReboardDto;
+import com.bit.common.dao.CommonDao;
+import com.bit.util.BoardConstance;
 
 @Service
 public class ReboardServiceImpl implements ReboardService {

@@ -1,12 +1,12 @@
-package com.cobang.common.service;
+package com.bit.common.service;
 
 import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.cobang.common.dao.CommonDao;
-import com.cobang.util.BoardConstance;
-import com.cobang.util.PageNavigation;
+import com.bit.common.dao.CommonDao;
+import com.bit.util.BoardConstance;
+import com.bit.util.PageNavigation;
 
 @Service
 public class CommonServiceImpl implements CommonService {

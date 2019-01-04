@@ -1,8 +1,8 @@
-package com.cobang.board.dao;
+package com.bit.board.dao;
 
 import java.util.List;
 import java.util.Map;
-import com.cobang.board.model.AlbumDto;
+import com.bit.board.model.AlbumDto;
 
 public interface AlbumDao {
   

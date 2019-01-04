@@ -1,12 +1,12 @@
-package com.cobang.board.admin.controller;
+package com.bit.board.admin.controller;
 
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.cobang.board.admin.model.BoardListDto;
-import com.cobang.board.admin.service.BoardAdminService;
+import com.bit.board.admin.model.BoardListDto;
+import com.bit.board.admin.service.BoardAdminService;
 
 
 @Controller

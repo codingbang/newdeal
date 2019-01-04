@@ -1,4 +1,4 @@
-﻿package com.cobang.util;
+﻿package com.bit.util;
 
 public class PageNavigation {
 

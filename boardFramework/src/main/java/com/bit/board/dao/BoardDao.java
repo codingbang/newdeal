@@ -1,8 +1,8 @@
-package com.cobang.board.dao;
+package com.bit.board.dao;
 
 import java.util.List;
 import java.util.Map;
-import com.cobang.board.model.BoardDto;
+import com.bit.board.model.BoardDto;
 
 public interface BoardDao {
   public int WriteArticle(BoardDto boardDto);

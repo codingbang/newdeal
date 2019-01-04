@@ -1,4 +1,4 @@
-package com.cobang.common.dao;
+package com.bit.common.dao;
 
 import java.util.Map;
 

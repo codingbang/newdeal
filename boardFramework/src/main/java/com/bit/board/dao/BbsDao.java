@@ -1,4 +1,4 @@
-package com.cobang.board.dao;
+package com.bit.board.dao;
 
 public interface BbsDao {
 

@@ -1,7 +1,7 @@
-package com.cobang.board.dao;
+package com.bit.board.dao;
 
 import java.util.List;
-import com.cobang.board.model.MemoDto;
+import com.bit.board.model.MemoDto;
 
 public interface MemoDao {
   

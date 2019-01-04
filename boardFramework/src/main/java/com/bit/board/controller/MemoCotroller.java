@@ -1,4 +1,4 @@
-package com.cobang.board.controller;
+package com.bit.board.controller;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.cobang.board.model.MemoDto;
-import com.cobang.board.service.MemoService;
-import com.cobang.member.model.MemberDto;
+import com.bit.board.model.MemoDto;
+import com.bit.board.service.MemoService;
+import com.bit.member.model.MemberDto;
 
 //@RestController(@Controller + @ResponseBody 나중에 완성후 바꾸기)
 @Controller

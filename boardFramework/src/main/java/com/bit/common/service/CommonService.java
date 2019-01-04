@@ -1,7 +1,7 @@
-package com.cobang.common.service;
+package com.bit.common.service;
 
 import java.util.Map;
-import com.cobang.util.PageNavigation;
+import com.bit.util.PageNavigation;
 
 public interface CommonService {
   

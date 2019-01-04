@@ -1,13 +1,13 @@
-package com.cobang.board.service;
+package com.bit.board.service;
 
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.cobang.board.dao.AlbumDao;
-import com.cobang.board.model.AlbumDto;
-import com.cobang.common.dao.CommonDao;
+import com.bit.board.dao.AlbumDao;
+import com.bit.board.model.AlbumDto;
+import com.bit.common.dao.CommonDao;
 
 @Service
 public class AlbumServiceImpl implements AlbumService {

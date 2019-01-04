@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.cobang.common.dao.CommonDao">
+<mapper namespace="com.bit.common.dao.CommonDao">
  
   <select id="getNextSeq" resultType="int">
       SELECT board_seq.nextval 

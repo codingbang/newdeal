@@ -1,4 +1,4 @@
-package com.cobang.board;
+package com.bit.board;
 
 import java.text.DateFormat;
 import java.util.Date;

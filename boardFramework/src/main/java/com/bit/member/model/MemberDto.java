@@ -1,4 +1,4 @@
-package com.cobang.member.model;
+package com.bit.member.model;
 
 public class MemberDto {
   

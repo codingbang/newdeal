@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.cobang.board.dao.MemoDao">
+<mapper namespace="com.bit.board.dao.MemoDao">
 
   <insert id="writeMemo" parameterType="memoDto">
     INSERT INTO memo (mseq, seq, id, name, mcontent, mtime)
